@@ -1,0 +1,27 @@
+name: Readiness case example
+about: Propose a fictional or anonymized AI readiness case
+labels: [case-study]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not include confidential, personal, or proprietary information.
+  - type: input
+    id: workflow
+    attributes:
+      label: Business workflow
+      description: What workflow does the AI prototype support?
+    validations:
+      required: true
+  - type: textarea
+    id: gaps
+    attributes:
+      label: Key readiness gaps
+      description: List the main data, evaluation, human review, audit, operations, or adoption gaps.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and sources
+      description: Cite public sources if applicable.

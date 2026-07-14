@@ -1,0 +1,53 @@
+{
+  "system_name": "Fictional Supplier Document Assistant",
+  "stage": "controlled pilot review",
+  "decision": "Controlled pilot only",
+  "total": 42.0,
+  "max_total": 70.0,
+  "normalized_70": 42.0,
+  "percentage": 60.0,
+  "has_veto": false,
+  "veto_items": [],
+  "top_gaps": [
+    "Evaluation set is too small",
+    "Audit log design is incomplete",
+    "Rollback owner is unclear"
+  ],
+  "category_scores": {
+    "business_workflow_and_value": {
+      "score": 7.0,
+      "max": 10.0,
+      "percentage": 70.0
+    },
+    "data_source_authorization_boundaries": {
+      "score": 6.0,
+      "max": 12.0,
+      "percentage": 50.0
+    },
+    "model_output_quality_and_evaluation": {
+      "score": 5.0,
+      "max": 12.0,
+      "percentage": 41.66666666666667
+    },
+    "human_review_and_responsibility_chain": {
+      "score": 7.0,
+      "max": 10.0,
+      "percentage": 70.0
+    },
+    "access_control_logs_auditability": {
+      "score": 5.0,
+      "max": 10.0,
+      "percentage": 50.0
+    },
+    "system_integration_operations_cost": {
+      "score": 6.0,
+      "max": 10.0,
+      "percentage": 60.0
+    },
+    "organizational_adoption_improvement": {
+      "score": 6.0,
+      "max": 6.0,
+      "percentage": 100.0
+    }
+  }
+}

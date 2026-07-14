@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-ready"
+version = "0.3.0"
+description = "CLI toolkit for AI prototype-to-production readiness scoring and reporting."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "AI Prototype-to-Production Toolkit contributors" }]
+keywords = [
+  "ai-governance",
+  "ai-deployment",
+  "llmops",
+  "responsible-ai",
+  "production-readiness",
+  "fde",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit"
+Repository = "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit"
+Issues = "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/issues"
+
+[project.scripts]
+ai-ready = "ai_ready.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

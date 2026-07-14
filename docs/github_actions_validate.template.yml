@@ -1,0 +1,32 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Run CLI scorer
+        run: ai-ready score examples/sample_assessment.json
+      - name: Generate Markdown report
+        run: ai-ready report examples/sample_assessment.json --output /tmp/sample_report.md
+      - name: Run unit tests
+        run: python -m unittest discover -s tests
+      - name: Check required files
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f SOURCES.md
+          test -f pyproject.toml
+          test -f src/ai_ready/cli.py
+          test -f templates/ai_prototype_readiness_checklist.md
+          test -f scorecards/ai_prototype_readiness_scorecard.md
+          test -f docs/benchmark_gap_analysis.md

@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local/private notes
+_private/
+*.local.md
+*.secret.*
+.env
+.env.*
+
+# Generated files
+*.tmp
+*.bak
+~$*
+
+# Python packaging / local env
+.venv/
+.tmp-venv/
+build/
+dist/
+*.egg-info/
+__pycache__/
+.pytest_cache/
