@@ -1,3 +1,10 @@
+## v0.3.1
+
+- Added `MANIFESTO.md` to make the core AI production-readiness philosophy explicit.
+- Added `docs/production_ready_ai_thesis.md` with the workflow + evidence + governance + accountability model.
+- Added article: `AI Deployment Is a Responsibility Problem, Not Just a Model Problem`.
+- Updated README with core thesis and public thought model links.
+
 # Changelog
 
 ## v0.2.0 - Draft

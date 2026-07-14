@@ -13,6 +13,28 @@ This repository provides **checklists, scorecards, prompts, templates, an instal
 
 ---
 
+## Core thesis
+
+> **AI demos prove possibility. Production requires responsibility.**
+
+This toolkit is built around a simple operating model:
+
+```text
+Production-ready AI = workflow + evidence + governance + accountability
+```
+
+Core beliefs:
+
+- A demo is not a deployment decision.
+- Readiness is not just a model score; it is a workflow, governance, evaluation, and accountability question.
+- Enterprise AI should be reviewed through evidence, not excitement.
+- Human review, auditability, rollback, and ownership are product requirements, not compliance afterthoughts.
+- The FDE job is to translate AI capability into an accountable operating workflow.
+
+Read the full [`MANIFESTO.md`](MANIFESTO.md) and [`docs/production_ready_ai_thesis.md`](docs/production_ready_ai_thesis.md).
+
+---
+
 ## 30-second value proposition
 
 Use this toolkit when a team says:
@@ -78,6 +100,7 @@ See [`docs/cli.md`](docs/cli.md) and [`examples/terminal_demo.txt`](examples/ter
 | Area | Files | Purpose |
 |---|---|---|
 | Orientation | [`README.md`](README.md), [`docs/quickstart_zh.md`](docs/quickstart_zh.md) | Explain the toolkit to public readers |
+| Thought model | [`MANIFESTO.md`](MANIFESTO.md), [`docs/production_ready_ai_thesis.md`](docs/production_ready_ai_thesis.md) | Make the deployment philosophy explicit |
 | Checklist | [`templates/ai_prototype_readiness_checklist.md`](templates/ai_prototype_readiness_checklist.md) | Assess deployment readiness across 7 dimensions |
 | Score / CLI | [`scorecards/ai_prototype_readiness_scorecard.md`](scorecards/ai_prototype_readiness_scorecard.md), [`scripts/score_readiness.py`](scripts/score_readiness.py), [`src/ai_ready`](src/ai_ready), [`docs/cli.md`](docs/cli.md) | Convert qualitative review into a decision and Markdown report |
 | Governance artifacts | [`templates/ai_system_card.md`](templates/ai_system_card.md), [`templates/risk_register.md`](templates/risk_register.md), [`templates/model_evaluation_plan.md`](templates/model_evaluation_plan.md) | Document system purpose, risk, evaluation and controls |
@@ -86,7 +109,7 @@ See [`docs/cli.md`](docs/cli.md) and [`examples/terminal_demo.txt`](examples/ter
 | Crosswalks | [`docs/nist_ai_rmf_crosswalk.md`](docs/nist_ai_rmf_crosswalk.md), [`docs/owasp_llm_top10_mapping.md`](docs/owasp_llm_top10_mapping.md) | Map checklist to NIST and OWASP language |
 | Examples | [`examples/fictional_ai_document_assistant_review.md`](examples/fictional_ai_document_assistant_review.md), [`examples/sample_assessment.json`](examples/sample_assessment.json) | Show what a review looks like |
 | Packaging | [`pyproject.toml`](pyproject.toml), [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) | Install locally and validate via CI |
-| Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md) | Technical-report style article for GitHub |
+| Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md), [`articles/002_ai_deployment_is_a_responsibility_problem.md`](articles/002_ai_deployment_is_a_responsibility_problem.md) | Technical-report style articles for GitHub |
 | Benchmarking | [`docs/benchmark_gap_analysis.md`](docs/benchmark_gap_analysis.md), [`SOURCES.md`](SOURCES.md) | Explain what high-quality projects were benchmarked |
 
 ---
