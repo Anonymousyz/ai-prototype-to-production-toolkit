@@ -1,26 +1,130 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AI Prototype Readiness Assessment",
+  "title": "AI Prototype Readiness Assessment v0.5",
   "type": "object",
-  "required": ["system_name", "scores", "max_scores", "veto_items", "top_gaps"],
+  "additionalProperties": false,
+  "required": [
+    "system_name",
+    "scores",
+    "max_scores",
+    "veto_items",
+    "top_gaps",
+    "evidence",
+    "review"
+  ],
   "properties": {
-    "system_name": {"type": "string"},
-    "stage": {"type": "string"},
+    "system_name": {"type": "string", "minLength": 1},
+    "stage": {"type": "string", "minLength": 1},
     "scores": {
       "type": "object",
-      "additionalProperties": {"type": "number", "minimum": 0}
+      "additionalProperties": false,
+      "required": [
+        "business_workflow_and_value",
+        "data_source_authorization_boundaries",
+        "model_output_quality_and_evaluation",
+        "human_review_and_responsibility_chain",
+        "access_control_logs_auditability",
+        "system_integration_operations_cost",
+        "organizational_adoption_improvement"
+      ],
+      "properties": {
+        "business_workflow_and_value": {"type": "number", "minimum": 0, "maximum": 10},
+        "data_source_authorization_boundaries": {"type": "number", "minimum": 0, "maximum": 12},
+        "model_output_quality_and_evaluation": {"type": "number", "minimum": 0, "maximum": 12},
+        "human_review_and_responsibility_chain": {"type": "number", "minimum": 0, "maximum": 10},
+        "access_control_logs_auditability": {"type": "number", "minimum": 0, "maximum": 10},
+        "system_integration_operations_cost": {"type": "number", "minimum": 0, "maximum": 10},
+        "organizational_adoption_improvement": {"type": "number", "minimum": 0, "maximum": 6}
+      }
     },
     "max_scores": {
       "type": "object",
-      "additionalProperties": {"type": "number", "minimum": 1}
+      "additionalProperties": false,
+      "required": [
+        "business_workflow_and_value",
+        "data_source_authorization_boundaries",
+        "model_output_quality_and_evaluation",
+        "human_review_and_responsibility_chain",
+        "access_control_logs_auditability",
+        "system_integration_operations_cost",
+        "organizational_adoption_improvement"
+      ],
+      "properties": {
+        "business_workflow_and_value": {"const": 10},
+        "data_source_authorization_boundaries": {"const": 12},
+        "model_output_quality_and_evaluation": {"const": 12},
+        "human_review_and_responsibility_chain": {"const": 10},
+        "access_control_logs_auditability": {"const": 10},
+        "system_integration_operations_cost": {"const": 10},
+        "organizational_adoption_improvement": {"const": 6}
+      }
     },
     "veto_items": {
       "type": "object",
-      "additionalProperties": {"type": "boolean"}
+      "additionalProperties": false,
+      "required": [
+        "unauthorized_data_use",
+        "sensitive_data_to_unapproved_model",
+        "high_risk_decision_without_human_review",
+        "no_logs_or_traceability",
+        "no_error_or_rollback_owner",
+        "cannot_evaluate_output_quality",
+        "uncontrolled_cost",
+        "marketed_as_production_ready_but_remains_demo"
+      ],
+      "properties": {
+        "unauthorized_data_use": {"type": "boolean"},
+        "sensitive_data_to_unapproved_model": {"type": "boolean"},
+        "high_risk_decision_without_human_review": {"type": "boolean"},
+        "no_logs_or_traceability": {"type": "boolean"},
+        "no_error_or_rollback_owner": {"type": "boolean"},
+        "cannot_evaluate_output_quality": {"type": "boolean"},
+        "uncontrolled_cost": {"type": "boolean"},
+        "marketed_as_production_ready_but_remains_demo": {"type": "boolean"}
+      }
     },
     "top_gaps": {
       "type": "array",
-      "items": {"type": "string"}
+      "items": {"type": "string", "minLength": 1}
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "business_workflow_and_value",
+        "data_source_authorization_boundaries",
+        "model_output_quality_and_evaluation",
+        "human_review_and_responsibility_chain",
+        "access_control_logs_auditability",
+        "system_integration_operations_cost",
+        "organizational_adoption_improvement"
+      ],
+      "properties": {
+        "business_workflow_and_value": {"$ref": "#/$defs/evidenceList"},
+        "data_source_authorization_boundaries": {"$ref": "#/$defs/evidenceList"},
+        "model_output_quality_and_evaluation": {"$ref": "#/$defs/evidenceList"},
+        "human_review_and_responsibility_chain": {"$ref": "#/$defs/evidenceList"},
+        "access_control_logs_auditability": {"$ref": "#/$defs/evidenceList"},
+        "system_integration_operations_cost": {"$ref": "#/$defs/evidenceList"},
+        "organizational_adoption_improvement": {"$ref": "#/$defs/evidenceList"}
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "reviewer_type", "reviewed_at"],
+      "properties": {
+        "owner": {"type": "string", "minLength": 1},
+        "reviewer_type": {"const": "human"},
+        "reviewed_at": {"type": "string", "format": "date"}
+      }
+    }
+  },
+  "$defs": {
+    "evidenceList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
     }
   }
 }

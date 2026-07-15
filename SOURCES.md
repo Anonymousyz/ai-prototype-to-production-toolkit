@@ -7,7 +7,7 @@ This toolkit is informed by public materials on forward deployed engineering, en
 | ID | Source | Type | URL | How it informed this toolkit |
 |---|---|---|---|---|
 | S1 | NIST AI RMF Playbook | Official government framework | https://airc.nist.gov/airmf-resources/playbook/ | Govern / Map / Measure / Manage framing and voluntary action orientation |
-| S2 | OWASP Top 10 for LLM Applications / GenAI Security Project | Open security community | https://owasp.org/www-project-top-10-for-large-language-model-applications/ | LLM risk taxonomy: prompt injection, insecure output handling, sensitive information disclosure, excessive agency, overreliance |
+| S2 | OWASP Top 10 for LLM and GenAI Applications 2025 | Open security community | https://genai.owasp.org/llm-top-10/ | Current LLM/GenAI application risk taxonomy used by the practical crosswalk |
 | S3 | Google People + AI Guidebook | Industry design guide | https://pair.withgoogle.com/guidebook/ | Human-centered AI: user autonomy, feedback, error handling, trust calibration |
 | S4 | OpenAI Evals | Open-source evaluation framework | https://github.com/openai/evals | Importance of custom evals, registry, and evaluation as engineering practice |
 | S5 | promptfoo | Open-source LLM eval/red-team framework | https://github.com/promptfoo/promptfoo | Declarative evals, CI/CD, red teaming, prompt/model comparison |
@@ -19,9 +19,10 @@ This toolkit is informed by public materials on forward deployed engineering, en
 | S11 | Microsoft Responsible AI Toolbox | Open-source responsible AI assessment tools | https://github.com/microsoft/responsible-ai-toolbox | Error analysis, interpretability, fairness dashboard, responsible AI assessment |
 | S12 | Fairlearn | Open-source fairness assessment/mitigation | https://github.com/fairlearn/fairlearn | Sociotechnical fairness framing and group fairness caveats |
 | S13 | IBM AIF360 | Open-source fairness metrics/mitigation | https://github.com/Trusted-AI/AIF360 | Bias detection and mitigation framing |
-| S14 | TensorFlow Model Card Toolkit | Open-source model card generation | https://github.com/tensorflow/model-card-toolkit | Model documentation and transparency artifacts |
+| S14 | TensorFlow Model Card Toolkit (archived) | Historical open-source model card generation | https://github.com/tensorflow/model-card-toolkit | Historical implementation; retained for provenance, not recommended as a maintained dependency |
 | S15 | Microsoft Agent Governance Toolkit | Open-source agent governance toolkit | https://github.com/microsoft/agent-governance-toolkit | Production README pattern, governance language, policy/audit framing, security/contribution files |
 | S16 | OpenAI Cookbook | Open-source examples and guides | https://github.com/openai/openai-cookbook | Practical example-driven repository style |
+| S17 | Hugging Face Model Cards | Maintained documentation guidance | https://huggingface.co/docs/hub/model-cards | Current model-card practice and metadata conventions |
 
 ## Background / role sources
 

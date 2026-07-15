@@ -1,26 +1,26 @@
-# AI readiness report: Fictional Supplier Document Assistant
+# AI readiness report: Fictional Internal Policy Search Assistant
 
 ## Summary
 
-- **Stage:** controlled pilot review
-- **Human review owner:** Fictional cross-functional pilot review committee
+- **Stage:** limited production trial
+- **Human review owner:** Fictional policy operations and security review panel
 - **Reviewed at:** 2026-07-15
-- **Decision:** Controlled pilot only
-- **Total:** 42/70
-- **Normalized:** 42/70 (60.0%)
+- **Decision:** Small production trial with monitoring
+- **Total:** 52/70
+- **Normalized:** 52/70 (74.3%)
 - **Veto:** no
 
 ## Category scores
 
 | Category | Score | Max | % |
 |---|---:|---:|---:|
-| business workflow and value | 7 | 10 | 70.0% |
-| data source authorization boundaries | 6 | 12 | 50.0% |
-| model output quality and evaluation | 5 | 12 | 41.7% |
-| human review and responsibility chain | 7 | 10 | 70.0% |
-| access control logs auditability | 5 | 10 | 50.0% |
-| system integration operations cost | 6 | 10 | 60.0% |
-| organizational adoption improvement | 6 | 6 | 100.0% |
+| business workflow and value | 8 | 10 | 80.0% |
+| data source authorization boundaries | 9 | 12 | 75.0% |
+| model output quality and evaluation | 8 | 12 | 66.7% |
+| human review and responsibility chain | 8 | 10 | 80.0% |
+| access control logs auditability | 7 | 10 | 70.0% |
+| system integration operations cost | 7 | 10 | 70.0% |
+| organizational adoption improvement | 5 | 6 | 83.3% |
 
 ## Evidence references
 
@@ -51,13 +51,13 @@ No veto item was marked true.
 
 ## Top gaps
 
-- Evaluation set is too small
-- Audit log design is incomplete
-- Rollback owner is unclear
+- Evaluation set needs more policy-version edge cases
+- Quarterly access review is not yet automated
+- Business owner adoption metric is still provisional
 
 ## Suggested next action
 
-Run only a controlled pilot with human review, logging, rollback ownership and a small evaluation set.
+Proceed to a small production trial only if monitoring, incident response and business ownership are explicit.
 
 ## Method note
 

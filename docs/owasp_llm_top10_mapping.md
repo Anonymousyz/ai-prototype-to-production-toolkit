@@ -1,26 +1,32 @@
-# OWASP LLM Top 10 mapping
+# OWASP Top 10 for LLM and GenAI Applications 2025 mapping
 
-This document maps the readiness checklist to common LLM application security concerns. It is a practical mapping, not a formal security audit.
+This document maps the readiness checklist to the **2025** OWASP Top 10 risk names. It is a practical crosswalk, not a formal security audit or evidence that a control is effective.
 
-| OWASP LLM risk | Toolkit checks that help surface it | Practical question |
+Authoritative index: [OWASP GenAI Security Project — 2025 Top 10](https://genai.owasp.org/llm-top-10/). Checked 2026-07-15.
+
+| OWASP 2025 risk | Toolkit checks that help surface it | Practical question |
 |---|---|---|
-| LLM01 Prompt Injection | Evaluation plan, guardrail/veto checks, must-refuse cases, tool permission design | Can untrusted input override instructions or trigger unsafe actions? |
-| LLM02 Insecure Output Handling | Human review, output validation, downstream integration controls | Is model output treated as code, command, or final decision without validation? |
-| LLM03 Training Data Poisoning | Data source boundary, knowledge-base update/versioning, supplier controls | Can poisoned or unreviewed data enter the system? |
-| LLM04 Model Denial of Service | Cost budget, rate limits, failure handling, abuse cases | Can users or prompts create excessive token/tool usage? |
-| LLM05 Supply Chain Vulnerabilities | Vendor/API dependency mapping, model/tool version records | Which third-party models, tools, plugins, or datasets are trusted? |
-| LLM06 Sensitive Information Disclosure | Data sensitivity, masking, external model boundary, output review | Can the system expose personal, confidential, or regulated data? |
-| LLM07 Insecure Plugin / Tool Design | Access control, tool permissions, human approval for high-risk actions | Can tools perform more than the workflow actually requires? |
-| LLM08 Excessive Agency | Human-in-the-loop, prohibited actions, pause/manual takeover | Is the agent allowed to act beyond human-approved boundaries? |
-| LLM09 Overreliance | Human review, user training, confidence limits, decision ownership | Will users trust outputs more than evidence supports? |
-| LLM10 Model Theft | Access control, logging, vendor boundary, API security | Can model assets, prompts, data, or proprietary behavior be extracted? |
+| LLM01 Prompt Injection | Adversarial evaluation, must-refuse cases, instruction/data separation, tool-permission design | Can untrusted content override instructions or trigger an unauthorized action? |
+| LLM02 Sensitive Information Disclosure | Data classification, minimization, external-model boundaries, output review | Can prompts, retrieval context, logs, or outputs expose personal, confidential, or regulated information? |
+| LLM03 Supply Chain | Model, dataset, library, tool, and vendor inventory; version and provenance records | Which third-party artifacts are trusted, and how are changes or compromises detected? |
+| LLM04 Data and Model Poisoning | Data provenance, ingestion approval, update/version controls, evaluation against manipulated content | Can poisoned training, fine-tuning, retrieval, or embedding data alter behavior? |
+| LLM05 Improper Output Handling | Output validation, encoding/sanitization, downstream integration controls, human approval | Is model output treated as executable code, a command, or a final decision without validation? |
+| LLM06 Excessive Agency | Least-privilege tool permissions, prohibited actions, approval gates, pause/manual takeover | Can the system perform more actions than the approved workflow requires? |
+| LLM07 System Prompt Leakage | Secret separation, prompt-content review, access controls, red-team tests | Would disclosure of a system prompt expose secrets or weaken a control boundary? |
+| LLM08 Vector and Embedding Weaknesses | Retrieval authorization, namespace isolation, provenance, poisoning tests, access-aware retrieval | Can embeddings or vector-store behavior leak, mix, or retrieve unauthorized content? |
+| LLM09 Misinformation | Grounded evaluation, citations, uncertainty handling, human decision ownership | Can unsupported output be mistaken for reliable evidence or an authoritative decision? |
+| LLM10 Unbounded Consumption | Rate limits, budget ownership, timeouts, recursion/tool-call limits, abuse monitoring | Can a user or agent create uncontrolled model, token, tool, or infrastructure consumption? |
 
 ## Veto examples
 
-Do not move to production if:
+Do not move to production when any of these remains true:
 
 - sensitive data can be sent to an unapproved model;
-- tool calls can execute irreversible actions without approval;
+- irreversible tool calls can execute without accountable human approval;
 - model outputs enter downstream systems without validation;
-- no trace exists for model version, prompt version, tool call, user action, and human approval;
-- users are encouraged to rely on AI output as final decision evidence.
+- model, prompt, retrieval, tool-call, user-action, and approval traces are absent;
+- users are encouraged to treat AI output as final decision evidence;
+- consumption limits and cost ownership are undefined;
+- the system is marketed as production-ready while required controls remain demonstrably absent.
+
+OWASP categories identify common risk areas; this mapping does not establish compliance with OWASP guidance or replace threat modeling and security testing for a specific system.

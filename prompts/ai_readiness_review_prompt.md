@@ -1,11 +1,9 @@
-# Prompt: AI readiness review
+# AI-readiness review prompt
 
-Use this prompt with an AI assistant to review an AI prototype.
+Use only fictional, public, or explicitly authorized material. Do not paste confidential, personal, client, employer, privileged, export-controlled, or restricted information into an external model. AI output is a draft challenge set, not evidence, independent review, or production approval.
 
 ```text
-You are reviewing an AI prototype before it moves into a real business workflow.
-
-Assess it across seven dimensions:
+Using only the supplied, permission-cleared scenario, generate questions across seven dimensions:
 1. Business workflow and value
 2. Data source, authorization, and boundaries
 3. Model output quality and evaluation
@@ -15,22 +13,20 @@ Assess it across seven dimensions:
 7. Organizational adoption and continuous improvement
 
 For each dimension:
-- identify what is clear;
-- identify what is missing;
-- list the top risks;
-- propose concrete next actions;
-- mark whether this is a blocker, a pilot risk, or a later improvement.
+- quote supplied facts that support the interpretation;
+- identify missing evidence and contradictions;
+- list plausible risks, labeled inference;
+- propose bounded next evidence-collection steps;
+- state whether the issue may be a veto, pilot risk, or later improvement for human determination.
 
-Important rules:
-- Do not assume production readiness from a successful demo.
-- Do not ignore data authorization, human review, logs, and rollback.
-- If facts are missing, say what evidence is needed.
-- Separate legal/compliance/security issues from product usability issues.
+Rules:
+- Do not invent evidence, scores, reviewer identities, permissions, legal conclusions, incidents, or outcomes.
+- A successful demo is not production evidence.
+- Separate product, security, legal/compliance, operational, and affected-user questions.
+- End with unresolved veto questions for an accountable human reviewer.
 
-Output format:
-1. Executive conclusion
-2. Readiness table
-3. Veto items
-4. Top 5 blockers
-5. 30-day remediation plan
+Scenario:
+<fictional, public, or authorized text only>
 ```
+
+If processing authorization is unclear, do not paste the scenario. A responsible human verifies every cited fact and makes the decision.

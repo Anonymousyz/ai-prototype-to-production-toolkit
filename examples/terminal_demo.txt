@@ -1,14 +1,7 @@
-$ python -m venv .venv
-$ .venv\Scripts\activate   # Windows; use `source .venv/bin/activate` on macOS/Linux
-$ python -m pip install -e .
-Successfully installed ai-ready-0.3.0
-
-$ ai-ready validate examples/sample_assessment.json
-Valid assessment: examples/sample_assessment.json
-
-$ ai-ready score examples/sample_assessment.json
 System: Fictional Supplier Document Assistant
 Stage: controlled pilot review
+Review owner: Fictional cross-functional pilot review committee
+Reviewed at: 2026-07-15
 Decision: Controlled pilot only
 Total: 42/70
 Normalized: 42/70 (60.0%)
@@ -17,6 +10,3 @@ Top gaps:
 - Evaluation set is too small
 - Audit log design is incomplete
 - Rollback owner is unclear
-
-$ ai-ready report examples/sample_assessment.json --output examples/reports/sample_assessment_report.md
-Wrote examples/reports/sample_assessment_report.md

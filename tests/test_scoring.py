@@ -54,6 +54,37 @@ class ReadinessScoringTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "score out of range"):
             validate_assessment(data)
 
+    def test_rejects_noncanonical_score_dimensions(self):
+        data = deepcopy(self.sample)
+        data["scores"] = {"anything": 1}
+        data["max_scores"] = {"anything": 1}
+        with self.assertRaisesRegex(ValueError, "canonical score dimensions"):
+            validate_assessment(data)
+
+    def test_rejects_changed_canonical_maximum(self):
+        data = deepcopy(self.sample)
+        data["max_scores"]["business_workflow_and_value"] = 1
+        with self.assertRaisesRegex(ValueError, "canonical maximum"):
+            validate_assessment(data)
+
+    def test_requires_complete_canonical_veto_set(self):
+        data = deepcopy(self.sample)
+        data["veto_items"].pop("unauthorized_data_use")
+        with self.assertRaisesRegex(ValueError, "canonical veto items"):
+            validate_assessment(data)
+
+    def test_requires_dimension_evidence(self):
+        data = deepcopy(self.sample)
+        data.pop("evidence", None)
+        with self.assertRaisesRegex(ValueError, "evidence"):
+            validate_assessment(data)
+
+    def test_requires_declared_human_review_metadata(self):
+        data = deepcopy(self.sample)
+        data.pop("review", None)
+        with self.assertRaisesRegex(ValueError, "review"):
+            validate_assessment(data)
+
     def test_rejects_non_boolean_veto(self):
         data = deepcopy(self.sample); data["veto_items"]["unauthorized_data_use"] = "false"
         with self.assertRaisesRegex(ValueError, "must be boolean"):

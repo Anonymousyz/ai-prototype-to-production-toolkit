@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-ready"
-version = "0.4.0"
+version = "0.5.0"
 description = "CLI toolkit for AI prototype-to-production readiness scoring and reporting."
 readme = "README.md"
 requires-python = ">=3.9"

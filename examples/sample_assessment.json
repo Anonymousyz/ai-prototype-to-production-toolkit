@@ -26,11 +26,40 @@
     "no_logs_or_traceability": false,
     "no_error_or_rollback_owner": false,
     "cannot_evaluate_output_quality": false,
-    "uncontrolled_cost": false
+    "uncontrolled_cost": false,
+    "marketed_as_production_ready_but_remains_demo": false
   },
   "top_gaps": [
     "Evaluation set is too small",
     "Audit log design is incomplete",
     "Rollback owner is unclear"
-  ]
+  ],
+  "evidence": {
+    "business_workflow_and_value": [
+      "Fictional workflow map, baseline, and user interview summary"
+    ],
+    "data_source_authorization_boundaries": [
+      "Fictional data inventory and authorization-boundary review"
+    ],
+    "model_output_quality_and_evaluation": [
+      "Fictional evaluation set summary and failure-case log"
+    ],
+    "human_review_and_responsibility_chain": [
+      "Fictional RACI and human-approval workflow"
+    ],
+    "access_control_logs_auditability": [
+      "Fictional access-control matrix and audit-log design review"
+    ],
+    "system_integration_operations_cost": [
+      "Fictional integration diagram, rollback runbook, and cost estimate"
+    ],
+    "organizational_adoption_improvement": [
+      "Fictional training, feedback, and adoption review plan"
+    ]
+  },
+  "review": {
+    "owner": "Fictional cross-functional pilot review committee",
+    "reviewer_type": "human",
+    "reviewed_at": "2026-07-15"
+  }
 }

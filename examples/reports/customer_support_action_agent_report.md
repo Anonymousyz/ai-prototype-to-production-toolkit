@@ -1,26 +1,26 @@
-# AI readiness report: Fictional Supplier Document Assistant
+# AI readiness report: Fictional Customer Support Action Agent
 
 ## Summary
 
-- **Stage:** controlled pilot review
-- **Human review owner:** Fictional cross-functional pilot review committee
+- **Stage:** pre-pilot review
+- **Human review owner:** Fictional customer operations risk review panel
 - **Reviewed at:** 2026-07-15
-- **Decision:** Controlled pilot only
-- **Total:** 42/70
-- **Normalized:** 42/70 (60.0%)
-- **Veto:** no
+- **Decision:** Do not proceed: veto item present
+- **Total:** 35/70
+- **Normalized:** 35/70 (50.0%)
+- **Veto:** yes
 
 ## Category scores
 
 | Category | Score | Max | % |
 |---|---:|---:|---:|
-| business workflow and value | 7 | 10 | 70.0% |
-| data source authorization boundaries | 6 | 12 | 50.0% |
-| model output quality and evaluation | 5 | 12 | 41.7% |
-| human review and responsibility chain | 7 | 10 | 70.0% |
-| access control logs auditability | 5 | 10 | 50.0% |
-| system integration operations cost | 6 | 10 | 60.0% |
-| organizational adoption improvement | 6 | 6 | 100.0% |
+| business workflow and value | 8 | 10 | 80.0% |
+| data source authorization boundaries | 5 | 12 | 41.7% |
+| model output quality and evaluation | 6 | 12 | 50.0% |
+| human review and responsibility chain | 4 | 10 | 40.0% |
+| access control logs auditability | 4 | 10 | 40.0% |
+| system integration operations cost | 5 | 10 | 50.0% |
+| organizational adoption improvement | 3 | 6 | 50.0% |
 
 ## Evidence references
 
@@ -47,17 +47,18 @@
 
 ## Veto items
 
-No veto item was marked true.
+- high_risk_decision_without_human_review
+- no_error_or_rollback_owner
 
 ## Top gaps
 
-- Evaluation set is too small
-- Audit log design is incomplete
-- Rollback owner is unclear
+- Refund action lacks a mandatory approval step
+- Rollback owner is not assigned
+- Tool-call audit trail is incomplete
 
 ## Suggested next action
 
-Run only a controlled pilot with human review, logging, rollback ownership and a small evaluation set.
+Stop the deployment path until veto items are resolved and independently reviewed.
 
 ## Method note
 

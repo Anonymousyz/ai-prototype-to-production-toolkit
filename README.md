@@ -4,14 +4,14 @@
 ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![GitHub release](https://img.shields.io/github/v/release/Anonymousyz/ai-prototype-to-production-toolkit)
 
-A practical toolkit for assessing whether an AI prototype is ready to move into production.
+A practical toolkit for structuring evidence about whether an AI prototype may be ready to move toward production.
 
-This repository provides **checklists, scorecards, prompts, templates, an installable CLI, and three fictional decision cases** for teams working on AI deployment in enterprise, public-sector, and regulated environments.
+This repository provides **checklists, scorecards, prompts, templates, an installable CLI, and three fictional assessment cases** for teams working on AI deployment in enterprise, public-sector, and regulated environments.
 
 > Many AI demos look impressive. Production deployment is different: business workflow, data boundaries, model evaluation, human review, access control, audit logging, cost ownership, rollback, and organizational adoption all matter.
 
 > [!IMPORTANT]
-> The score is an author-designed decision-support heuristic—not certification or proof of safety, compliance, security, or production readiness. Read the [method status and evidence boundary](docs/method_status.md) before using it in a real decision.
+> The score is an author-designed decision-support heuristic—not certification or proof of safety, compliance, security, or production readiness. v0.5 fixes the seven dimensions and eight veto keys, requires evidence references and a dated human review declaration, but does not verify their truth or the reviewer's identity. Read the [method status and evidence boundary](docs/method_status.md) before using it in a real decision.
 
 ---
 
@@ -171,7 +171,7 @@ This toolkit is **not**:
 
 It is a structured starting point for product, governance, risk, compliance, and deployment discussions.
 
-The current release uses an uncalibrated heuristic scale. Scores should be accompanied by source evidence, named reviewers, and an explicit decision owner; unresolved vetoes cannot be offset by a high total.
+The current release uses an uncalibrated, fixed 70-point heuristic scale. Every dimension requires referenced evidence, a named reviewer and assessment date are mandatory, and all eight veto keys must be declared. These are structural checks only: unresolved vetoes cannot be offset by a high total, and the CLI does not authenticate evidence or reviewer identity.
 
 ---
 

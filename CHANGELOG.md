@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented here.
 
+## v0.5.0 — 2026-07-15
+
+- Made the seven 70-point dimensions and all eight veto keys canonical; one-field `1/1` inputs now fail validation.
+- Required per-dimension evidence references plus a dated, human-owned review declaration.
+- Expanded the JSON schema and regression suite to enforce dimensions, maxima, veto completeness, evidence, and review metadata.
+- Updated the OWASP crosswalk to the official 2025 LLM/GenAI Top 10 names.
+- Kept the score explicitly structural: the CLI still cannot verify evidence truth, reviewer identity, or production safety.
+
 ## v0.4.0 — 2026-07-15
 
 - Strengthened input validation for empty identifiers, boolean/nonnumeric scores, malformed veto values, and non-string gaps.
