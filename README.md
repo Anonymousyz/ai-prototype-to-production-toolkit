@@ -4,14 +4,14 @@
 ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![GitHub release](https://img.shields.io/github/v/release/Anonymousyz/ai-prototype-to-production-toolkit)
 
-A practical toolkit for structuring evidence about whether an AI prototype may be ready to move toward production.
+A practical toolkit for the moment after an AI demo works and before anyone should call it production-ready.
 
-This repository provides **checklists, scorecards, prompts, templates, an installable CLI, and three fictional assessment cases** for teams working on AI deployment in enterprise, public-sector, and regulated environments.
+It gives teams checklists, scorecards, prompts, templates, a local CLI, and three fictional assessment cases for enterprise, public-sector, and regulated AI deployment work.
 
 > Many AI demos look impressive. Production deployment is different: business workflow, data boundaries, model evaluation, human review, access control, audit logging, cost ownership, rollback, and organizational adoption all matter.
 
 > [!IMPORTANT]
-> The score is an author-designed decision-support heuristic—not certification or proof of safety, compliance, security, or production readiness. v0.5 fixes the seven dimensions and eight veto keys, requires evidence references and a dated human review declaration, but does not verify their truth or the reviewer's identity. Read the [method status and evidence boundary](docs/method_status.md) before using it in a real decision.
+> The score is an author-designed decision-support heuristic. It is not certification or proof of safety, compliance, security, or production readiness. v0.5 fixes the seven dimensions and eight veto keys, requires evidence references and a dated human review declaration, but does not verify their truth or the reviewer's identity. Read the [method status and evidence boundary](docs/method_status.md) before using it in a real decision.
 
 ---
 
@@ -28,7 +28,7 @@ Production-ready AI = workflow + evidence + governance + accountability
 Core beliefs:
 
 - A demo is not a deployment decision.
-- Readiness is not just a model score; it is a workflow, governance, evaluation, and accountability question.
+- Readiness depends on workflow, governance, evaluation, and accountability as much as model output.
 - Enterprise AI should be reviewed through evidence, not excitement.
 - Human review, auditability, rollback, and ownership are product requirements, not compliance afterthoughts.
 - The FDE job is to translate AI capability into an accountable operating workflow.
@@ -43,7 +43,7 @@ Use this toolkit when a team says:
 
 > “The AI demo works. Can we put it into the real workflow next month?”
 
-This toolkit helps you answer:
+It helps the team answer:
 
 1. What is clear enough for pilot?
 2. What is still a blocker?
@@ -55,14 +55,14 @@ This toolkit helps you answer:
 
 ## Quick start
 
-### Option A — human workshop
+### Option A: human workshop
 
 1. Copy [`templates/ai_prototype_readiness_checklist.md`](templates/ai_prototype_readiness_checklist.md).
 2. Score the prototype with [`scorecards/ai_prototype_readiness_scorecard.md`](scorecards/ai_prototype_readiness_scorecard.md).
 3. Fill [`templates/risk_register.md`](templates/risk_register.md).
 4. Write a decision memo using [`templates/pilot_review_memo.md`](templates/pilot_review_memo.md).
 
-### Option B — installable CLI
+### Option B: installable CLI
 
 ```bash
 python -m venv .venv
@@ -121,13 +121,13 @@ See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples
 
 A prototype becomes production-ready only when the team can answer questions across seven dimensions:
 
-1. **Business workflow and value** — Which workflow changes, and how is value measured?
-2. **Data source, authorization, and boundaries** — What data is used, and under what authorization?
-3. **Model output quality and evaluation** — How are quality, hallucination, failure, and regression measured?
-4. **Human review and responsibility chain** — Which actions need human review, and who owns mistakes?
-5. **Access control, logs, and auditability** — Can the team prove who did what, when, with which model/prompt/version?
-6. **System integration, operations, and cost** — Can the system survive failure, rollback, cost spikes, and ownership changes?
-7. **Organizational adoption and continuous improvement** — Will real users adopt it, and how will feedback improve the workflow?
+1. **Business workflow and value:** Which workflow changes, and how is value measured?
+2. **Data source, authorization, and boundaries:** What data is used, and under what authorization?
+3. **Model output quality and evaluation:** How are quality, hallucination, failure, and regression measured?
+4. **Human review and responsibility chain:** Which actions need human review, and who owns mistakes?
+5. **Access control, logs, and auditability:** Can the team prove who did what, when, with which model/prompt/version?
+6. **System integration, operations, and cost:** Can the system survive failure, rollback, cost spikes, and ownership changes?
+7. **Organizational adoption and continuous improvement:** Will real users adopt it, and how will feedback improve the workflow?
 
 ```mermaid
 flowchart LR
@@ -143,11 +143,11 @@ flowchart LR
 
 ---
 
-## What makes this different
+## Where it fits
 
 This is **not** an LLM evaluation framework like OpenAI Evals, promptfoo, DeepEval, Phoenix, Opik, or RAGAS.
 
-It is a **deployment readiness layer** that sits before or beside those tools:
+It sits before or beside those tools as a deployment-readiness layer:
 
 | Tool category | Examples | What they are strong at | This toolkit adds |
 |---|---|---|---|
@@ -159,7 +159,7 @@ It is a **deployment readiness layer** that sits before or beside those tools:
 
 ---
 
-## What this is not
+## Limits
 
 This toolkit is **not**:
 
@@ -169,9 +169,9 @@ This toolkit is **not**:
 - a substitute for professional compliance review;
 - a guarantee that an AI system is safe or production-ready.
 
-It is a structured starting point for product, governance, risk, compliance, and deployment discussions.
+Use it as a structured starting point for product, governance, risk, compliance, and deployment discussions.
 
-The current release uses an uncalibrated, fixed 70-point heuristic scale. Every dimension requires referenced evidence, a named reviewer and assessment date are mandatory, and all eight veto keys must be declared. These are structural checks only: unresolved vetoes cannot be offset by a high total, and the CLI does not authenticate evidence or reviewer identity.
+The current release uses a fixed but uncalibrated 70-point scale. Every dimension requires referenced evidence, a named reviewer and assessment date are mandatory, and all eight veto keys must be declared. These checks are structural: unresolved vetoes cannot be offset by a high total, and the CLI does not authenticate evidence or reviewer identity.
 
 ---
 

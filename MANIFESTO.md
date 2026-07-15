@@ -2,175 +2,97 @@
 
 > **AI demos prove possibility. Production requires responsibility.**
 
-This repository is built around one thesis:
+I designed this toolkit for an awkward handoff: the demo has won attention, but someone still has to decide whether the system belongs in a real workflow.
+
+That decision cannot rest on a polished interface or a single model score. It needs a workflow, evidence, controls, and named owners.
 
 > **Production-ready AI = workflow + evidence + governance + accountability.**
 
-A model can be impressive in a demo and still be unready for a real business workflow. The gap is not only technical. It is operational, organizational, legal, ethical, and human.
+## What a demo actually proves
 
-This manifesto explains the thinking behind the toolkit.
+A demo shows that a system worked under a chosen set of conditions. That matters, but it does not tell us how the system behaves with ordinary users, disputed inputs, unavailable dependencies, cost spikes, or an operator who needs to reverse a bad action.
 
----
+The useful question is simple:
 
-## 1. A demo is not a deployment decision
+> What must be true before this output is allowed to influence a real workflow?
 
-A demo proves that something can work once, in a controlled setting, with motivated users and limited consequences.
+A team that cannot answer this question still has an experiment. It may be a good experiment. It is not yet a deployment case.
 
-Production deployment means the system will affect real users, real workflows, real data, real budgets, and real responsibilities.
+## The model sits inside a larger system
 
-The question is not:
-
-> Does the AI output look good?
-
-The question is:
-
-> What must be true before this output can safely influence a real workflow?
-
----
-
-## 2. The model is only one part of the system
-
-Many AI projects over-focus on model capability and under-specify the surrounding system.
-
-Production readiness requires at least seven dimensions:
+This toolkit reviews seven areas:
 
 1. business workflow and value;
-2. data source authorization and boundaries;
-3. model output quality and evaluation;
-4. human review and responsibility chain;
-5. access control, logs and auditability;
-6. system integration, operations and cost;
-7. organizational adoption and improvement loops.
+2. data authorization and boundaries;
+3. output quality and evaluation;
+4. human review and responsibility;
+5. access control, logs, and auditability;
+6. integration, operations, cost, and rollback;
+7. adoption and improvement.
 
-A better model cannot compensate for unclear ownership, weak data boundaries, missing logs, or no rollback plan.
+A stronger model does not repair unclear ownership. It does not create data permission, an incident owner, or a rollback path. Those are system design problems.
 
----
+The v0.5 CLI therefore fixes all seven dimensions and all eight veto keys. Earlier drafts let an input file define its own dimensions and denominator. That was flexible, but it also made a nominal full score easy to manufacture. The current contract closes that loophole.
 
-## 3. Evidence should come before excitement
+## Evidence has to survive questions
 
-Excitement is useful for exploration. Evidence is required for deployment.
+Before a pilot decision, the review packet should identify:
 
-A team should be able to show:
+- the data the system may use;
+- the evaluation cases and failure costs;
+- observed failure modes;
+- the person who may approve, override, or stop an action;
+- the records retained for later review;
+- the owners of incidents and cost;
+- the rollback condition.
 
-- what data the system can and cannot use;
-- what evaluation cases were tested;
-- what failure modes were observed;
-- who reviews or overrides outputs;
-- what logs are kept;
-- who owns cost and incidents;
-- what happens when the system is wrong.
+A reference in a JSON file is not proof. A reviewer name is not identity verification. The CLI checks whether these declarations exist and follow the fixed contract; accountable people still have to verify them.
 
-If these answers are missing, the system is still a demo, no matter how impressive the interface looks.
+## Human review needs a real job
 
----
+“Human in the loop” is too vague to be useful. A review design should say what the person sees, which actions require approval, how disagreement is recorded, and when escalation is mandatory.
 
-## 4. Human review is a product requirement
+The reviewer also needs authority. If the system can act before the reviewer can intervene, the diagram may show a human while the workflow does not.
 
-Human review is often treated as a compliance patch. It should be designed as part of the product.
+## Logs are part of the product
 
-Good human review answers:
+Useful logs let a team reconstruct an event: source input, retrieved context, model and prompt version, output, human edit, decision, downstream action, and rollback.
 
-- which decisions require a human;
-- what the reviewer can see;
-- what evidence is shown;
-- how disagreement is handled;
-- when escalation is required;
-- how corrections improve the system.
+This is operational evidence, not paperwork added for an audit. Without it, teams cannot investigate failures or decide whether a control worked.
 
-A human-in-the-loop label means little without a real responsibility chain.
+## Governance belongs in delivery
 
----
+Governance work starts during discovery. It appears in the risk register, evaluation plan, access design, system card, pilot memo, and release decision. Waiting until launch turns governance into cleanup.
 
-## 5. Auditability is not paperwork
+That is why this repository contains working artifacts and a CLI rather than a policy essay alone. The artifacts make gaps discussable. They do not make the final decision.
 
-Audit logs are not only for auditors. They are how teams learn from failures, resolve disputes, and improve systems.
+## The FDE role is translation
 
-A production AI system should make important events traceable:
+Forward-deployed work connects ambition with operating detail. The engineer has to translate a proposed capability into a workflow, a test plan, controls, ownership, and a handover that another team can run.
 
-- input sources;
-- retrieval context;
-- model outputs;
-- human edits;
-- approval or rejection;
-- downstream actions;
-- incidents and rollback.
+Code matters. So do the questions around it: who may use the system, what can go wrong, who notices, and who has the authority to stop it.
 
-Without traceability, accountability becomes theatre.
+## A practical review sequence
 
----
+When someone asks whether a working demo can go into production, ask:
 
-## 6. Governance should be embedded in delivery
+1. Which workflow changes?
+2. Which data is authorized?
+3. What evidence defines acceptable performance?
+4. Which actions require human judgment?
+5. What is recorded?
+6. Who owns incidents and operating cost?
+7. What triggers rollback?
+8. Who makes the decision, and on what evidence?
 
-AI governance should not arrive after the product is already shipped.
+Only then is “production” a useful conversation.
 
-For enterprise and regulated AI, governance is part of delivery:
+## 中文摘要
 
-- discovery questions;
-- readiness scoring;
-- risk register;
-- model/system documentation;
-- evaluation plan;
-- pilot review memo;
-- release decision.
+这个工具箱针对一个很具体的交接点：AI demo 已经能跑，但团队还没有足够依据决定它能否进入真实业务流程。
 
-This is why this toolkit includes templates, prompts, scorecards, examples, and a CLI. The goal is to make governance operational, not ornamental.
+模型效果只是其中一部分。真正需要核验的，是业务流程、数据授权、评估证据、人工责任、日志、运行成本和回滚机制。v0.5 把七个维度和八项一票否决条件固定下来，避免自定义分母把任意输入包装成满分。
 
----
-
-## 7. The FDE job is translation
-
-Forward-deployed engineering is not just writing a demo inside a customer environment.
-
-The harder work is translation:
-
-- from executive ambition to workflow design;
-- from model output to business evidence;
-- from user excitement to adoption plan;
-- from risk concern to control design;
-- from prototype to accountable system.
-
-This is the operating model behind the toolkit.
-
----
-
-## 8. Practical rule
-
-When someone says:
-
-> The AI demo works. Can we put it into production?
-
-Answer with this review sequence:
-
-1. What workflow will change?
-2. What data is authorized?
-3. How do we evaluate quality?
-4. Who reviews outputs?
-5. What is logged?
-6. Who owns incidents and cost?
-7. What is the rollback plan?
-8. What evidence supports the decision?
-
-Only then should a team discuss production deployment.
-
----
-
-## Chinese summary / 中文摘要
-
-这个项目背后的核心判断是：
-
-> **AI demo 证明可能性，生产化要求责任。**
-
-生产级 AI 不是“模型效果不错”就可以上线，而是要同时具备：
-
-- 真实业务流程；
-- 明确数据边界；
-- 可复核评估证据；
-- 人工责任链；
-- 审计日志；
-- 成本和故障责任；
-- 回滚机制；
-- 组织采纳路径。
-
-一句话：
+CLI 只能检查材料是否按固定结构填写，不能证明证据真实，也不能证明评审人身份。最终判断仍由有权限、能承担后果的人作出。
 
 > **生产级 AI = 业务流程 + 评估证据 + 治理机制 + 责任链。**
