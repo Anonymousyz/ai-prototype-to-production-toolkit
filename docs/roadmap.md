@@ -1,43 +1,35 @@
 # Roadmap
 
-## v0.2 — Public toolkit foundation
+The roadmap prioritizes evidence and user value over repository-count or badge growth.
 
-- [x] README with value proposition and quickstart
-- [x] Readiness checklist
-- [x] Scorecard
-- [x] FDE discovery guide
-- [x] Prompt templates
-- [x] Fictional example
-- [x] Source table
-- [x] Benchmark gap analysis
-- [x] NIST AI RMF crosswalk
-- [x] OWASP LLM Top 10 mapping
-- [x] AI system card
-- [x] Risk register
-- [x] Evaluation plan
-- [x] Pilot review memo
-- [x] Sample JSON assessment
-- [x] Basic scoring script
-- [x] GitHub Actions validation workflow
+## v0.4 — Current hardened alpha
 
-## v0.3 — Stronger portfolio signal
+- [x] Installable `ai-ready` CLI
+- [x] JSON validation and Markdown/JSON/text reporting
+- [x] Three fictional decision cases
+- [x] Eleven unit and CLI-boundary tests
+- [x] NIST AI RMF and OWASP LLM Top 10 crosswalks
+- [x] Explicit method-status, limitation, and calibration roadmap
+- [x] Privacy and placeholder scans before release
+- [ ] Publish active GitHub Actions workflow when repository credentials include workflow permission
 
-- [ ] Add one full fictional regulated-industry case study
-- [ ] Add a Markdown link checker
-- [ ] Add a one-page executive PDF export template
-- [ ] Add Chinese/English parallel article version
-- [ ] Add example promptfoo / DeepEval integration note
+## v0.5 — Evidence and usability
 
-## v0.4 — Automation
+- [ ] Publish a stable package to PyPI after naming and dependency review
+- [ ] Add at least 20 independently reviewed assessment fixtures
+- [ ] Measure inter-rater agreement for category scoring
+- [ ] Add schema-version and migration handling
+- [ ] Add HTML report output with accessible charts
+- [ ] Add a documented promptfoo or DeepEval integration example
+- [ ] Add one permission-cleared or fully synthetic end-to-end regulated-industry case
 
-- [ ] Package scoring script as CLI
-- [ ] Add JSON-to-Markdown report generator
-- [ ] Add optional Streamlit demo
+## v1.0 — Validated public release
 
-## v1.0 — Public release candidate
+- [ ] Independent review by product, security, operations, legal/compliance, and affected-user representatives
+- [ ] Published calibration results and known limitations
+- [ ] At least three external users or teams have provided actionable feedback
+- [ ] Stable CLI compatibility policy and release process
+- [ ] Active CI, dependency review, and link checking
+- [ ] GitHub Pages or equivalent documentation site
 
-- [ ] At least 3 public examples
-- [ ] Clear versioned release notes
-- [ ] Public feedback incorporated
-- [ ] GitHub Pages or project site
-- [ ] No private information scan completed
+Version numbers do not imply certification. A release records software and method maturity; it does not certify an assessed AI system.

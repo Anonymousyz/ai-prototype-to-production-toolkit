@@ -1,0 +1,36 @@
+{
+  "system_name": "Fictional Internal Policy Search Assistant",
+  "stage": "limited production trial",
+  "scores": {
+    "business_workflow_and_value": 8,
+    "data_source_authorization_boundaries": 9,
+    "model_output_quality_and_evaluation": 8,
+    "human_review_and_responsibility_chain": 8,
+    "access_control_logs_auditability": 7,
+    "system_integration_operations_cost": 7,
+    "organizational_adoption_improvement": 5
+  },
+  "max_scores": {
+    "business_workflow_and_value": 10,
+    "data_source_authorization_boundaries": 12,
+    "model_output_quality_and_evaluation": 12,
+    "human_review_and_responsibility_chain": 10,
+    "access_control_logs_auditability": 10,
+    "system_integration_operations_cost": 10,
+    "organizational_adoption_improvement": 6
+  },
+  "veto_items": {
+    "unauthorized_data_use": false,
+    "sensitive_data_to_unapproved_model": false,
+    "high_risk_decision_without_human_review": false,
+    "no_logs_or_traceability": false,
+    "no_error_or_rollback_owner": false,
+    "cannot_evaluate_output_quality": false,
+    "uncontrolled_cost": false
+  },
+  "top_gaps": [
+    "Evaluation set needs more policy-version edge cases",
+    "Quarterly access review is not yet automated",
+    "Business owner adoption metric is still provisional"
+  ]
+}

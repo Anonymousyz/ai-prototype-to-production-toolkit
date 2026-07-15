@@ -1,3 +1,9 @@
+# GitHub Actions validation template.
+#
+# To enable, copy this file to `.github/workflows/validate.yml` using a token
+# with GitHub's `workflow` scope. This repository deliberately keeps the file
+# under `docs/` until that permission is available.
+
 name: validate
 
 on:
@@ -7,11 +13,14 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.11', '3.12']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: ${{ matrix.python-version }}
       - name: Install package
         run: python -m pip install -e .
       - name: Run CLI scorer
@@ -19,7 +28,7 @@ jobs:
       - name: Generate Markdown report
         run: ai-ready report examples/sample_assessment.json --output /tmp/sample_report.md
       - name: Run unit tests
-        run: python -m unittest discover -s tests
+        run: python -m unittest discover -s tests -v
       - name: Check required files
         run: |
           test -f README.md
@@ -29,4 +38,4 @@ jobs:
           test -f src/ai_ready/cli.py
           test -f templates/ai_prototype_readiness_checklist.md
           test -f scorecards/ai_prototype_readiness_scorecard.md
-          test -f docs/benchmark_gap_analysis.md
+          test -f docs/method_status.md

@@ -1,0 +1,36 @@
+{
+  "system_name": "Fictional Customer Support Action Agent",
+  "stage": "pre-pilot review",
+  "scores": {
+    "business_workflow_and_value": 8,
+    "data_source_authorization_boundaries": 5,
+    "model_output_quality_and_evaluation": 6,
+    "human_review_and_responsibility_chain": 4,
+    "access_control_logs_auditability": 4,
+    "system_integration_operations_cost": 5,
+    "organizational_adoption_improvement": 3
+  },
+  "max_scores": {
+    "business_workflow_and_value": 10,
+    "data_source_authorization_boundaries": 12,
+    "model_output_quality_and_evaluation": 12,
+    "human_review_and_responsibility_chain": 10,
+    "access_control_logs_auditability": 10,
+    "system_integration_operations_cost": 10,
+    "organizational_adoption_improvement": 6
+  },
+  "veto_items": {
+    "unauthorized_data_use": false,
+    "sensitive_data_to_unapproved_model": false,
+    "high_risk_decision_without_human_review": true,
+    "no_logs_or_traceability": false,
+    "no_error_or_rollback_owner": true,
+    "cannot_evaluate_output_quality": false,
+    "uncontrolled_cost": false
+  },
+  "top_gaps": [
+    "Refund action lacks a mandatory approval step",
+    "Rollback owner is not assigned",
+    "Tool-call audit trail is incomplete"
+  ]
+}

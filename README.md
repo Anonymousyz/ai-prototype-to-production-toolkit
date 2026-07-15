@@ -1,15 +1,17 @@
 # AI Prototype-to-Production Toolkit
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Artifact: Toolkit](https://img.shields.io/badge/artifact-toolkit-blue)
-![Status: v0.3 CLI](https://img.shields.io/badge/status-v0.3%20CLI-blue)
-![No secrets](https://img.shields.io/badge/privacy-no%20secrets-green)
+![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
+![GitHub release](https://img.shields.io/github/v/release/Anonymousyz/ai-prototype-to-production-toolkit)
 
 A practical toolkit for assessing whether an AI prototype is ready to move into production.
 
-This repository provides **checklists, scorecards, prompts, templates, an installable CLI, a sample scoring script, and fictional case examples** for teams working on AI deployment in enterprise, public-sector, and regulated environments.
+This repository provides **checklists, scorecards, prompts, templates, an installable CLI, and three fictional decision cases** for teams working on AI deployment in enterprise, public-sector, and regulated environments.
 
 > Many AI demos look impressive. Production deployment is different: business workflow, data boundaries, model evaluation, human review, access control, audit logging, cost ownership, rollback, and organizational adoption all matter.
+
+> [!IMPORTANT]
+> The score is an author-designed decision-support heuristic—not certification or proof of safety, compliance, security, or production readiness. Read the [method status and evidence boundary](docs/method_status.md) before using it in a real decision.
 
 ---
 
@@ -91,7 +93,7 @@ Generate a Markdown report:
 ai-ready report examples/sample_assessment.json --output examples/reports/sample_assessment_report.md
 ```
 
-See [`docs/cli.md`](docs/cli.md) and [`examples/terminal_demo.txt`](examples/terminal_demo.txt).
+See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples/terminal_demo.txt`](examples/terminal_demo.txt).
 
 ---
 
@@ -107,8 +109,9 @@ See [`docs/cli.md`](docs/cli.md) and [`examples/terminal_demo.txt`](examples/ter
 | FDE workflow | [`templates/fde_discovery_interview_guide.md`](templates/fde_discovery_interview_guide.md) | Guide discovery conversations with business teams |
 | Prompts | [`prompts/ai_readiness_review_prompt.md`](prompts/ai_readiness_review_prompt.md), [`prompts/fde_case_study_prompt.md`](prompts/fde_case_study_prompt.md) | Use AI assistants to structure review and case writing |
 | Crosswalks | [`docs/nist_ai_rmf_crosswalk.md`](docs/nist_ai_rmf_crosswalk.md), [`docs/owasp_llm_top10_mapping.md`](docs/owasp_llm_top10_mapping.md) | Map checklist to NIST and OWASP language |
-| Examples | [`examples/fictional_ai_document_assistant_review.md`](examples/fictional_ai_document_assistant_review.md), [`examples/sample_assessment.json`](examples/sample_assessment.json) | Show what a review looks like |
-| Packaging | [`pyproject.toml`](pyproject.toml), [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) | Install locally and validate via CI |
+| Method boundary | [`docs/method_status.md`](docs/method_status.md) | State the heuristic's limits and validation roadmap |
+| Examples | [`docs/demo.md`](docs/demo.md), [`examples/sample_assessment.json`](examples/sample_assessment.json), [`examples/internal_policy_search_assistant.json`](examples/internal_policy_search_assistant.json), [`examples/customer_support_action_agent.json`](examples/customer_support_action_agent.json) | Demonstrate score, veto, and decision behavior |
+| Packaging | [`pyproject.toml`](pyproject.toml), [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) | Install locally; CI remains a documented template until the repository credential can publish workflows |
 | Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md), [`articles/002_ai_deployment_is_a_responsibility_problem.md`](articles/002_ai_deployment_is_a_responsibility_problem.md) | Technical-report style articles for GitHub |
 | Benchmarking | [`docs/benchmark_gap_analysis.md`](docs/benchmark_gap_analysis.md), [`SOURCES.md`](SOURCES.md) | Explain what high-quality projects were benchmarked |
 
@@ -168,6 +171,8 @@ This toolkit is **not**:
 
 It is a structured starting point for product, governance, risk, compliance, and deployment discussions.
 
+The current release uses an uncalibrated heuristic scale. Scores should be accompanied by source evidence, named reviewers, and an explicit decision owner; unresolved vetoes cannot be offset by a high total.
+
 ---
 
 ## Chinese summary / 中文简介
@@ -184,17 +189,14 @@ It is a structured starting point for product, governance, risk, compliance, and
 - prompt templates；
 - fictional case；
 - NIST AI RMF / OWASP LLM Top 10 对照；
-- 一个可运行的样例评分脚本。
+- 一个可安装运行、可生成 Markdown/JSON 报告的 CLI；
+- 三个分别展示“受控试点、较强准备度、一票否决”的虚构案例。
 
 ---
 
-## Growth and launch
+## Roadmap
 
-This repository is designed as a public portfolio and open-source toolkit. See:
-
-- [`docs/star_growth_strategy.md`](docs/star_growth_strategy.md)
-- [`docs/launch_playbook.md`](docs/launch_playbook.md)
-- [`docs/roadmap.md`](docs/roadmap.md)
+The next evidence-bearing milestones are documented in [`docs/roadmap.md`](docs/roadmap.md): broader tests, independent rubric review, more cases, a stable package release, and real-world feedback that can be published without disclosing confidential data.
 
 ---
 

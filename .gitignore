@@ -3,19 +3,16 @@
 Thumbs.db
 .vscode/
 .idea/
-
 # Local/private notes
 _private/
 *.local.md
 *.secret.*
 .env
 .env.*
-
 # Generated files
 *.tmp
 *.bak
 ~$*
-
 # Python packaging / local env
 .venv/
 .tmp-venv/
@@ -24,3 +21,6 @@ dist/
 *.egg-info/
 __pycache__/
 .pytest_cache/
+*.py[cod]
+.mypy_cache/
+.coverage
