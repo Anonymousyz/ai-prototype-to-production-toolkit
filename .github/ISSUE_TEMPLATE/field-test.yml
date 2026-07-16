@@ -1,0 +1,54 @@
+name: Field-test report
+description: Share a reproducible method or CLI gap using public or synthetic material only.
+title: "[field test] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing the toolkit. Do not include confidential, personal, client, employer, security-sensitive, or regulated data.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: v0.6.0
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: What did you test?
+      options:
+        - CLI validation or scoring
+        - HTML or Markdown report
+        - Checklist or scorecard
+        - Template or fictional case
+        - Method boundary or documentation
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Public or synthetic scenario
+      description: Describe the workflow and the evidence boundary without naming a real client or person.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result and reproduction steps
+      render: shell
+    validations:
+      required: true
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: Publication boundary
+      options:
+        - label: I confirm that this report uses only public, fictional, synthetic, or explicitly authorized material.
+          required: true

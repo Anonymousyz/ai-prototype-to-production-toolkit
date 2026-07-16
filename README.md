@@ -4,6 +4,26 @@
 ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![GitHub release](https://img.shields.io/github/v/release/Anonymousyz/ai-prototype-to-production-toolkit)
 
+<p align="center">
+  <img src="assets/ai-ready-overview.svg" alt="AI Prototype-to-Production Toolkit: demo, review, veto gates and human decision" width="100%">
+</p>
+
+## Try it in 60 seconds
+
+```bash
+python -m pip install "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/releases/download/v0.6.0/ai_ready-0.6.0-py3-none-any.whl"
+ai-ready example --output assessment.json
+ai-ready report assessment.json --format html --output report.html
+```
+
+The command creates a local, script-free report. Open `report.html` to inspect the declared score, veto state, category gaps and human review owner.
+
+<p align="center">
+  <img src="assets/ai-ready-report-preview.png" alt="Generated AI readiness HTML report for a fictional supplier document assistant" width="100%">
+</p>
+
+Start with the [fictional assessment](examples/sample_assessment.json), the [copyable checklist](templates/ai_prototype_readiness_checklist.md), or the [generated report](examples/reports/sample_assessment_report.html). Found a gap in the method? Open a [field-test report](https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/issues/new?template=field-test.yml) using public or synthetic material only.
+
 A local-first toolkit for teams deciding whether an AI prototype has enough structure, evidence, and operating control to enter a bounded business workflow.
 
 The toolkit is designed for the handoff between a working prototype and an accountable deployment decision. Product owners, forward-deployed engineers, solution architects, risk practitioners, security reviewers, and operating teams often look at the same system from different angles. This repository gives them a common review surface: workflow definition, data authorization, evaluation, human review, access and logging, operating ownership, cost, adoption, and rollback.
@@ -51,7 +71,7 @@ Read the full [`MANIFESTO.md`](MANIFESTO.md) and [`docs/production_ready_ai_thes
 
 ---
 
-## 30-second value proposition
+## When the review is useful
 
 Use this toolkit when a team says:
 
