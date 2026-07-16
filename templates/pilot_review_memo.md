@@ -45,6 +45,9 @@ Decision summary:
 | High-risk decision without human review |  |  |
 | No logs/version/traceability |  |  |
 | No error/rollback owner |  |  |
+| Cannot evaluate output quality |  |  |
+| Uncontrolled cost |  |  |
+| Marketed as production-ready but remains a demo |  |  |
 
 ## 5. Top risks
 

@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented here.
 
+## v0.6.0 — 2026-07-16
+
+- Added an explicit `schema_version: "0.6"` contract and a non-destructive `ai-ready migrate` path for known unversioned v0.5 assessments.
+- Added script-free static HTML reports with accessible score bars and HTML-escaped assessment content.
+- Hardened output protection against direct paths, normalized aliases, symbolic links, hard-link aliases of the source assessment, and accidental overwrite of an existing example destination.
+- Rejected numeric strings, NaN, infinity, unknown root fields, non-canonical nested review fields, non-boolean public veto flags, non-exact calendar-date syntax, and non-finite values passed through the public decision API so runtime validation matches the public JSON Schema.
+- Shipped the sample assessment inside the wheel so `ai-ready example` works after a normal installation, and completed the source distribution with every documented toolkit asset, including the two public articles.
+- Added a fourth fully synthetic regulated-industry case and validated every example against the v0.6 runtime contract.
+- Added a bounded, version-pinned Promptfoo integration example and a score-preserving handoff into `research-to-decision-toolkit`; generated evaluation results remain untracked.
+- Corrected the public input and output contract, regenerated the JSON example, aligned all human-review artifacts with the eight vetoes, and tightened contribution authorization language.
+- Preserved the canonical seven dimensions, 70-point total, eight vetoes, existing decision thresholds, and default Markdown report behavior.
+
 ## v0.5.2 — 2026-07-16
 
 - Added machine-readable citation metadata for the repository and release.

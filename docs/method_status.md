@@ -4,13 +4,14 @@
 
 The fixed 70-point scale is an **author-designed, uncalibrated decision-support heuristic**. It has not been certified or validated as a substitute for legal, security, safety, compliance, or conformity assessment.
 
-## What v0.5 enforces
+## What v0.6 enforces
 
-- exactly seven named dimensions, each with a fixed maximum of 10;
+- an explicit `schema_version: "0.6"` declaration, plus a non-destructive migration path for the known unversioned v0.5 contract;
+- exactly seven named dimensions with fixed maxima **10 / 12 / 12 / 10 / 10 / 10 / 6**;
 - complete declaration of eight named veto conditions;
 - at least one evidence reference per dimension;
-- a reviewer declaration and ISO assessment date;
-- at least one explicit gap;
+- nested `review.owner`, human `review.reviewer_type`, and ISO `review.reviewed_at` declarations;
+- a declared `top_gaps` list, which may be empty;
 - veto priority over the numeric total.
 
 This closes the prior structural loophole in which arbitrary user-defined dimensions and maxima could produce a nominal full score.
@@ -30,7 +31,7 @@ This closes the prior structural loophole in which arbitrary user-defined dimens
 - that organizations or reviewers apply the scale consistently;
 - that every sector-specific obligation or affected stakeholder has been assessed.
 
-A reviewer field is a declaration for accountability, not identity verification. An evidence reference is a traceability pointer, not source authentication.
+A reviewer field is a declaration for accountability, not identity verification. An evidence reference is a traceability pointer, not source authentication. The public JSON Schema checks structural shape; the Python runtime additionally rejects whitespace-only identifiers and invalid calendar dates. Static HTML output escapes declared text and contains no scripts, but it is still only a rendering of unverified declarations.
 
 ## Calibration roadmap
 

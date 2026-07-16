@@ -1,9 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AI Prototype Readiness Assessment v0.5",
+  "title": "AI Prototype Readiness Assessment v0.6",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
     "system_name",
     "scores",
     "max_scores",
@@ -13,6 +14,7 @@
     "review"
   ],
   "properties": {
+    "schema_version": {"const": "0.6"},
     "system_name": {"type": "string", "minLength": 1},
     "stage": {"type": "string", "minLength": 1},
     "scores": {

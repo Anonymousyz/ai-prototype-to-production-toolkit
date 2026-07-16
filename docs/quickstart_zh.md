@@ -31,9 +31,11 @@
 - 数据授权不清；
 - 敏感/个人/受监管数据进入未批准外部模型；
 - 高风险事项没有人工复核；
-- 没有日志、版本和责任链；
+- 没有日志、版本或可追溯记录；
+- 没有暂停、纠错或回滚责任人；
 - 无法评估模型输出质量；
-- 没有人负责暂停、回滚、纠错和持续维护。
+- 成本没有上限、预算责任人或停用条件；
+- 仍是演示系统，却被宣传为已具备生产条件。
 
 ## 这个仓库不是法律意见
 
@@ -50,6 +52,10 @@ python -m venv .venv
 python -m pip install -e .
 ai-ready score examples/sample_assessment.json
 ai-ready report examples/sample_assessment.json --output examples/reports/sample_assessment_report.md
+ai-ready report examples/sample_assessment.json --format html --output examples/reports/sample_assessment_report.html
+ai-ready migrate legacy-v05.json --output assessment-v06.json
 ```
 
-它的作用不是替代治理判断，而是把 readiness review 的输入结构化，输出一个可复核的评分和 Markdown 报告。
+v0.6 要求 `schema_version: "0.6"`。`migrate` 只把已知的无版本 v0.5 输入复制到新文件并补上版本号，不改原文件、评分、证据或复核声明；HTML 报告无脚本并转义输入文本。
+
+它的作用不是替代治理判断，而是把 readiness review 的输入结构化，输出一个可复核的评分和文本/JSON/Markdown/静态 HTML 报告。

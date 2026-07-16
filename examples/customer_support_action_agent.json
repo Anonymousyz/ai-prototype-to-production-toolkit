@@ -1,4 +1,5 @@
 {
+  "schema_version": "0.6",
   "system_name": "Fictional Customer Support Action Agent",
   "stage": "pre-pilot review",
   "scores": {

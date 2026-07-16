@@ -8,10 +8,10 @@ A local-first toolkit for teams deciding whether an AI prototype has enough stru
 
 The toolkit is designed for the handoff between a working prototype and an accountable deployment decision. Product owners, forward-deployed engineers, solution architects, risk practitioners, security reviewers, and operating teams often look at the same system from different angles. This repository gives them a common review surface: workflow definition, data authorization, evaluation, human review, access and logging, operating ownership, cost, adoption, and rollback.
 
-It includes a fixed 70-point local CLI, eight named veto conditions, JSON schema, checklists, scorecards, prompts, system documentation templates, risk and evaluation artifacts, pilot-memo templates, and three fictional assessment cases. The cases show controlled-pilot, stronger-readiness, and veto behavior without exposing client or employer information.
+It includes a fixed 70-point local CLI, eight named veto conditions, JSON schema, checklists, scorecards, prompts, system documentation templates, risk and evaluation artifacts, pilot-memo templates, and four fictional assessment cases. The cases show controlled-pilot, stronger-readiness, regulated-workflow, and veto behavior without exposing client or employer information.
 
 > [!IMPORTANT]
-> The score is an author-designed decision-support heuristic. It does not certify safety, compliance, security, fairness, or production approval. v0.5 fixes the seven dimensions and eight veto keys, requires per-dimension evidence references plus a dated human-review declaration, and rejects custom denominators such as `anything: 1/1`. The CLI validates declared structure; it does not verify source truth, reviewer identity, or real-world operating performance. Read the [method status and evidence boundary](docs/method_status.md) before using it in a material decision.
+> The score is an author-designed decision-support heuristic. It does not certify safety, compliance, security, fairness, or production approval. v0.6 preserves the seven dimensions, 70-point scale, and eight veto keys while adding an explicit schema version, safe v0.5 migration, and script-free static HTML reporting. The CLI validates declared structure; it does not verify source truth, reviewer identity, or real-world operating performance. Read the [method status and evidence boundary](docs/method_status.md) before using it in a material decision.
 
 ## What this toolkit is for
 
@@ -91,6 +91,8 @@ Expected output:
 ```text
 System: Fictional Supplier Document Assistant
 Stage: controlled pilot review
+Review owner: Fictional cross-functional pilot review committee
+Reviewed at: 2026-07-15
 Decision: Controlled pilot only
 Total: 42/70
 Normalized: 42/70 (60.0%)
@@ -101,10 +103,17 @@ Top gaps:
 - Rollback owner is unclear
 ```
 
-Generate a Markdown report:
+Generate Markdown or static HTML:
 
 ```bash
 ai-ready report examples/sample_assessment.json --output examples/reports/sample_assessment_report.md
+ai-ready report examples/sample_assessment.json --format html --output examples/reports/sample_assessment_report.html
+```
+
+Migrate an unversioned v0.5 assessment without changing the source file:
+
+```bash
+ai-ready migrate legacy-v05.json --output assessment-v06.json
 ```
 
 See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples/terminal_demo.txt`](examples/terminal_demo.txt).
@@ -118,14 +127,16 @@ See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples
 | Orientation | [`README.md`](README.md), [`docs/quickstart_zh.md`](docs/quickstart_zh.md) | Explain the toolkit to public readers |
 | Thought model | [`MANIFESTO.md`](MANIFESTO.md), [`docs/production_ready_ai_thesis.md`](docs/production_ready_ai_thesis.md) | Make the deployment philosophy explicit |
 | Checklist | [`templates/ai_prototype_readiness_checklist.md`](templates/ai_prototype_readiness_checklist.md) | Assess deployment readiness across 7 dimensions |
-| Score / CLI | [`scorecards/ai_prototype_readiness_scorecard.md`](scorecards/ai_prototype_readiness_scorecard.md), [`scripts/score_readiness.py`](scripts/score_readiness.py), [`src/ai_ready`](src/ai_ready), [`docs/cli.md`](docs/cli.md) | Convert qualitative review into a decision and Markdown report |
+| Score / CLI | [`scorecards/ai_prototype_readiness_scorecard.md`](scorecards/ai_prototype_readiness_scorecard.md), [`scripts/score_readiness.py`](scripts/score_readiness.py), [`src/ai_ready`](src/ai_ready), [`docs/cli.md`](docs/cli.md) | Validate, migrate, score, and generate text/JSON/Markdown/static HTML reports |
 | Governance artifacts | [`templates/ai_system_card.md`](templates/ai_system_card.md), [`templates/risk_register.md`](templates/risk_register.md), [`templates/model_evaluation_plan.md`](templates/model_evaluation_plan.md) | Document system purpose, risk, evaluation and controls |
 | FDE workflow | [`templates/fde_discovery_interview_guide.md`](templates/fde_discovery_interview_guide.md) | Guide discovery conversations with business teams |
 | Prompts | [`prompts/ai_readiness_review_prompt.md`](prompts/ai_readiness_review_prompt.md), [`prompts/fde_case_study_prompt.md`](prompts/fde_case_study_prompt.md) | Use AI assistants to structure review and case writing |
 | Crosswalks | [`docs/nist_ai_rmf_crosswalk.md`](docs/nist_ai_rmf_crosswalk.md), [`docs/owasp_llm_top10_mapping.md`](docs/owasp_llm_top10_mapping.md) | Map checklist to NIST and OWASP language |
 | Method boundary | [`docs/method_status.md`](docs/method_status.md) | State the heuristic's limits and validation roadmap |
 | Portfolio evidence map | [`docs/portfolio_evidence_map.md`](docs/portfolio_evidence_map.md) | Show what a technical, governance, or FDE interviewer can inspect and what the public artifacts do not prove |
-| Examples | [`docs/demo.md`](docs/demo.md), [`examples/sample_assessment.json`](examples/sample_assessment.json), [`examples/internal_policy_search_assistant.json`](examples/internal_policy_search_assistant.json), [`examples/customer_support_action_agent.json`](examples/customer_support_action_agent.json) | Demonstrate score, veto, and decision behavior |
+| Eval integration | [`integrations/promptfoo/README.md`](integrations/promptfoo/README.md) | Show how authorized model-evaluation results can become human-reviewed evidence without auto-converting pass rates into readiness scores |
+| Decision handoff | [`docs/readiness_to_decision_handoff.md`](docs/readiness_to_decision_handoff.md) | Move verified gaps and evidence into R2D without copying one toolkit's score into the other |
+| Examples | [`docs/demo.md`](docs/demo.md), [`examples/sample_assessment.json`](examples/sample_assessment.json), [`examples/internal_policy_search_assistant.json`](examples/internal_policy_search_assistant.json), [`examples/customer_support_action_agent.json`](examples/customer_support_action_agent.json), [`examples/synthetic_industrial_safety_procedure_assistant.json`](examples/synthetic_industrial_safety_procedure_assistant.json) | Demonstrate controlled-pilot, stronger-readiness, veto, and regulated-workflow behavior |
 | Packaging | [`pyproject.toml`](pyproject.toml), [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) | Install locally; CI remains a documented template until the repository credential can publish workflows |
 | Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md), [`articles/002_ai_deployment_is_a_responsibility_problem.md`](articles/002_ai_deployment_is_a_responsibility_problem.md) | Technical-report style articles for GitHub |
 | Benchmarking | [`docs/benchmark_gap_analysis.md`](docs/benchmark_gap_analysis.md), [`SOURCES.md`](SOURCES.md) | Explain what high-quality projects were benchmarked |
@@ -206,8 +217,8 @@ The current release uses a fixed but uncalibrated 70-point scale. Every dimensio
 - prompt templates；
 - fictional case；
 - NIST AI RMF / OWASP LLM Top 10 对照；
-- 一个可安装运行、可生成 Markdown/JSON 报告的 CLI；
-- 三个分别展示“受控试点、较强准备度、一票否决”的虚构案例。
+- 一个可安装运行、可迁移 v0.5 输入并生成 Markdown/JSON/静态 HTML 报告的 CLI；
+- 四个分别展示“受控试点、较强准备度、一票否决、受监管工业流程”的虚构案例。
 
 ---
 

@@ -7,7 +7,7 @@ authors:
 repository-code: "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit"
 url: "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit"
 license: MIT
-version: 0.5.2
+version: 0.6.0
 date-released: 2026-07-16
 abstract: >-
   A local-first CLI and artifact toolkit for reviewing whether an AI-enabled

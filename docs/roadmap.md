@@ -2,28 +2,29 @@
 
 The roadmap prioritizes evidence and user value over repository-count or badge growth.
 
-## v0.5 — Current hardened alpha
+## v0.5 — Hardened baseline
 
 - [x] Installable `ai-ready` CLI
 - [x] Fixed seven-dimension, 70-point input contract
 - [x] Complete eight-veto declaration and veto priority
 - [x] Per-dimension evidence references plus reviewer/date declarations
 - [x] Markdown/JSON/text reports and three fictional assessment cases
-- [x] Sixteen unit, CLI, malformed-input, and anti-score-spoofing tests
+- [x] Regression coverage for malformed input, non-finite numbers, schema/runtime boundaries, source-overwrite protection, veto templates, and packaged examples
 - [x] NIST AI RMF and OWASP 2025 practical crosswalks
 - [x] Explicit method status, limitation, and calibration roadmap
 - [x] Privacy and placeholder scans before release
-- [ ] Publish an active GitHub Actions workflow only with explicit workflow-scope authorization
 
-## v0.6 — Evidence and usability
+## v0.6 — Current evidence and usability release
 
-- [ ] Add schema-version and migration handling
+- [x] Add schema-version and non-destructive v0.5 migration handling
+- [x] Add script-free static HTML reports with accessible labelled score bars and escaped content
+- [x] Add a documented Promptfoo integration example that does not auto-convert eval results into readiness scores
+- [x] Add one fully synthetic regulated-industry case
+- [x] Add a bounded handoff into `research-to-decision-toolkit`
 - [ ] Add at least 20 independently reviewed fictional or permission-cleared assessment fixtures
 - [ ] Measure inter-rater agreement for category scoring
-- [ ] Add HTML report output with accessible charts
-- [ ] Add a documented promptfoo or DeepEval integration example
-- [ ] Add one permission-cleared or fully synthetic end-to-end regulated-industry case
 - [ ] Decide on PyPI naming and publication after dependency and namespace review
+- [ ] Publish an active GitHub Actions workflow only with explicit workflow-scope authorization
 
 ## v1.0 — Validated public release
 

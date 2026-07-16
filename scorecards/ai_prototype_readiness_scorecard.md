@@ -32,6 +32,19 @@ This scorecard summarizes the checklist results.
 - [ ] Small production trial;
 - [ ] Scale with governance controls.
 
+## Veto items
+
+Any marked item overrides the numeric score.
+
+- [ ] Unauthorized data use
+- [ ] Sensitive data to unapproved model
+- [ ] High-risk decision without human review
+- [ ] No logs, version record, or traceability
+- [ ] No error/rollback owner
+- [ ] Cannot evaluate output quality
+- [ ] Uncontrolled cost
+- [ ] Marketed as production-ready but remains a demo
+
 ## Top 5 gaps
 
 1.
