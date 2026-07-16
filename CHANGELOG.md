@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here.
 
+## v0.5.1 — 2026-07-16
+
+- Expanded the README with professional deployment context, target readers, review layers, and explicit operating artifacts.
+- Clarified the relationship among workflow definition, data authorization, evaluation, human responsibility, and operations.
+- Preserved the v0.5 canonical scoring and evidence boundary; this patch changes presentation and package metadata, not the readiness contract.
+
 ## v0.5.0 — 2026-07-15
 
 - Made the seven 70-point dimensions and all eight veto keys canonical; one-field `1/1` inputs now fail validation.

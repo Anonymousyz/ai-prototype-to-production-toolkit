@@ -4,14 +4,28 @@
 ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![GitHub release](https://img.shields.io/github/v/release/Anonymousyz/ai-prototype-to-production-toolkit)
 
-A practical toolkit for the moment after an AI demo works and before anyone should call it production-ready.
+A local-first toolkit for teams deciding whether an AI prototype has enough structure, evidence, and operating control to enter a bounded business workflow.
 
-It gives teams checklists, scorecards, prompts, templates, a local CLI, and three fictional assessment cases for enterprise, public-sector, and regulated AI deployment work.
+The toolkit is designed for the handoff between a working prototype and an accountable deployment decision. Product owners, forward-deployed engineers, solution architects, risk practitioners, security reviewers, and operating teams often look at the same system from different angles. This repository gives them a common review surface: workflow definition, data authorization, evaluation, human review, access and logging, operating ownership, cost, adoption, and rollback.
 
-> Many AI demos look impressive. Production deployment is different: business workflow, data boundaries, model evaluation, human review, access control, audit logging, cost ownership, rollback, and organizational adoption all matter.
+It includes a fixed 70-point local CLI, eight named veto conditions, JSON schema, checklists, scorecards, prompts, system documentation templates, risk and evaluation artifacts, pilot-memo templates, and three fictional assessment cases. The cases show controlled-pilot, stronger-readiness, and veto behavior without exposing client or employer information.
 
 > [!IMPORTANT]
-> The score is an author-designed decision-support heuristic. It is not certification or proof of safety, compliance, security, or production readiness. v0.5 fixes the seven dimensions and eight veto keys, requires evidence references and a dated human review declaration, but does not verify their truth or the reviewer's identity. Read the [method status and evidence boundary](docs/method_status.md) before using it in a real decision.
+> The score is an author-designed decision-support heuristic. It does not certify safety, compliance, security, fairness, or production approval. v0.5 fixes the seven dimensions and eight veto keys, requires per-dimension evidence references plus a dated human-review declaration, and rejects custom denominators such as `anything: 1/1`. The CLI validates declared structure; it does not verify source truth, reviewer identity, or real-world operating performance. Read the [method status and evidence boundary](docs/method_status.md) before using it in a material decision.
+
+## What this toolkit is for
+
+The unit of review is not an abstract model. It is an AI-enabled workflow that has a user, input sources, a decision or action point, affected stakeholders, an operating owner, and a failure path.
+
+| Review layer | Question the team must answer | Example artifact |
+|---|---|---|
+| Business workflow | What decision or task changes, for whom, and how is value or harm observed? | workflow map, discovery guide, pilot memo |
+| Data and authorization | What may the system read, retain, send, or prohibit? | data-boundary section, AI system card |
+| Evaluation | What counts as acceptable output, failure, regression, or unacceptable risk? | evaluation plan, test cases, top gaps |
+| Human responsibility | Who can approve, override, escalate, pause, or stop an action? | review design, veto record, decision owner |
+| Operations | Who owns access, logs, cost, incidents, monitoring, support, and rollback? | risk register, runbook inputs, operating-owner record |
+
+A high model benchmark cannot answer these questions on its own. The goal is to make the unanswered questions visible before they become production incidents or governance disputes.
 
 ---
 

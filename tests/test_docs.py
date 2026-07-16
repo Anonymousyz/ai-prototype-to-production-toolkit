@@ -6,12 +6,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class DocumentationContractTests(unittest.TestCase):
-    def test_package_versions_match_v050(self):
+    def test_package_versions_match_v051(self):
         pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8-sig")
         init = (ROOT / "src" / "ai_ready" / "__init__.py").read_text(encoding="utf-8-sig")
         p_ver = re.search(r'^version = "([^"]+)"', pyproject, re.MULTILINE).group(1)
         i_ver = re.search(r'__version__ = "([^"]+)"', init).group(1)
-        self.assertEqual((p_ver, i_ver), ("0.5.0", "0.5.0"))
+        self.assertEqual((p_ver, i_ver), ("0.5.1", "0.5.1"))
 
     def test_prompts_have_information_and_human_review_boundaries(self):
         for path in (ROOT / "prompts").glob("*.md"):
