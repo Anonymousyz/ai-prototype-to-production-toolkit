@@ -9,6 +9,7 @@ All notable changes to this project are documented here.
 - Expanded the JSON schema and regression suite to enforce dimensions, maxima, veto completeness, evidence, and review metadata.
 - Updated the OWASP crosswalk to the official 2025 LLM/GenAI Top 10 names.
 - Kept the score explicitly structural: the CLI still cannot verify evidence truth, reviewer identity, or production safety.
+- Added a portfolio evidence map and cross-repository operating path for technical, governance, and FDE reviewers.
 
 ## v0.4.0 — 2026-07-15
 
