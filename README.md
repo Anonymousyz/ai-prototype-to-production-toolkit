@@ -110,10 +110,13 @@ See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples
 | Prompts | [`prompts/ai_readiness_review_prompt.md`](prompts/ai_readiness_review_prompt.md), [`prompts/fde_case_study_prompt.md`](prompts/fde_case_study_prompt.md) | Use AI assistants to structure review and case writing |
 | Crosswalks | [`docs/nist_ai_rmf_crosswalk.md`](docs/nist_ai_rmf_crosswalk.md), [`docs/owasp_llm_top10_mapping.md`](docs/owasp_llm_top10_mapping.md) | Map checklist to NIST and OWASP language |
 | Method boundary | [`docs/method_status.md`](docs/method_status.md) | State the heuristic's limits and validation roadmap |
+| Portfolio evidence map | [`docs/portfolio_evidence_map.md`](docs/portfolio_evidence_map.md) | Show what a technical, governance, or FDE interviewer can inspect and what the public artifacts do not prove |
 | Examples | [`docs/demo.md`](docs/demo.md), [`examples/sample_assessment.json`](examples/sample_assessment.json), [`examples/internal_policy_search_assistant.json`](examples/internal_policy_search_assistant.json), [`examples/customer_support_action_agent.json`](examples/customer_support_action_agent.json) | Demonstrate score, veto, and decision behavior |
 | Packaging | [`pyproject.toml`](pyproject.toml), [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) | Install locally; CI remains a documented template until the repository credential can publish workflows |
 | Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md), [`articles/002_ai_deployment_is_a_responsibility_problem.md`](articles/002_ai_deployment_is_a_responsibility_problem.md) | Technical-report style articles for GitHub |
 | Benchmarking | [`docs/benchmark_gap_analysis.md`](docs/benchmark_gap_analysis.md), [`SOURCES.md`](SOURCES.md) | Explain what high-quality projects were benchmarked |
+
+This repository is one part of a public operating path. Use the [Awesome AI Production Readiness list](https://github.com/Anonymousyz/awesome-ai-production-readiness) to identify tools for a gap, then use the [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit) when a readiness assessment must become a human decision packet.
 
 ---
 

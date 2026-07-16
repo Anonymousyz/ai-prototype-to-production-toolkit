@@ -30,6 +30,14 @@ class DocumentationContractTests(unittest.TestCase):
         self.assertFalse((ROOT / ".github" / "workflows").exists())
         self.assertTrue((ROOT / "docs" / "github_actions_validate.template.yml").exists())
 
+    def test_portfolio_evidence_map_is_present_and_linked(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8-sig")
+        evidence_map = (ROOT / "docs" / "portfolio_evidence_map.md").read_text(encoding="utf-8-sig")
+        self.assertIn("docs/portfolio_evidence_map.md", readme)
+        self.assertIn("research-to-decision-toolkit", evidence_map)
+        self.assertIn("awesome-ai-production-readiness", evidence_map)
+        self.assertIn("does not claim real client outcomes", evidence_map)
+
 
 if __name__ == "__main__":
     unittest.main()
