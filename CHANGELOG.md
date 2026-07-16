@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here.
 
+## v0.5.2 — 2026-07-16
+
+- Added machine-readable citation metadata for the repository and release.
+- Completed the MIT copyright notice with the public maintainer identity.
+- Kept the v0.5 readiness contract unchanged; canonical-score, veto, CLI, and test behavior are unchanged.
+
 ## v0.5.1 — 2026-07-16
 
 - Expanded the README with professional deployment context, target readers, review layers, and explicit operating artifacts.

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this toolkit, please cite this repository and release."
+title: "AI Prototype-to-Production Toolkit"
+type: software
+authors:
+  - name: "Anonymousyz"
+repository-code: "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit"
+url: "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit"
+license: MIT
+version: 0.5.2
+date-released: 2026-07-16
+abstract: >-
+  A local-first CLI and artifact toolkit for reviewing whether an AI-enabled
+  workflow has enough evidence, controls, and accountable ownership to enter
+  a bounded pilot or production decision.
+keywords:
+  - ai-governance
+  - ai-deployment
+  - production-readiness
+  - responsible-ai
+  - decision-support
