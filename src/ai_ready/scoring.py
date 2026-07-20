@@ -84,7 +84,9 @@ def decision(total: float, max_total: float, has_veto: bool) -> str:
 
 def load_assessment(path: str | Path) -> dict[str, Any]:
     path = Path(path)
-    with path.open("r", encoding="utf-8") as f:
+    # utf-8-sig accepts both plain UTF-8 and the BOM that Windows PowerShell 5
+    # prepends by default, so local-first usage works with either encoding.
+    with path.open("r", encoding="utf-8-sig") as f:
         data = json.load(f)
     if not isinstance(data, Mapping):
         raise ValueError("assessment must be a JSON object")
@@ -157,7 +159,7 @@ def validate_assessment(data: Mapping[str, Any]) -> None:
         )
     if not _nonempty_string(data["system_name"]):
         raise ValueError("system_name must be a non-empty string")
-    if data.get("stage") is not None and not _nonempty_string(data["stage"]):
+    if "stage" in data and not _nonempty_string(data["stage"]):
         raise ValueError("stage must be a non-empty string when provided")
 
     scores = data["scores"]

@@ -36,7 +36,7 @@ python scripts/score_readiness.py examples/sample_assessment.json
 Use [`examples/sample_assessment.json`](../examples/sample_assessment.json) and [`schemas/readiness_assessment.schema.json`](../schemas/readiness_assessment.schema.json) together. The CLI requires:
 
 - `schema_version` fixed to `0.6`;
-- a non-empty `system_name`; `stage` is optional, but must be non-empty when provided;
+- a non-empty `system_name`; `stage` is optional, but must be a non-empty string when provided (`null` is rejected, matching the public schema);
 - all seven canonical numeric `scores` keys; strings, booleans, NaN, and infinity are rejected;
 - matching fixed `max_scores` in this order: **10 / 12 / 12 / 10 / 10 / 10 / 6**;
 - all eight canonical boolean `veto_items` keys;
@@ -45,6 +45,8 @@ Use [`examples/sample_assessment.json`](../examples/sample_assessment.json) and 
 - `top_gaps` is required but may be empty; every listed item must be a non-empty string.
 
 Unknown root fields, unknown or missing dimensions, altered maxima, incomplete veto declarations, malformed dates, missing evidence, and unsupported schema versions fail validation. A custom `anything: 1/1` score is invalid.
+
+Input files may be plain UTF-8 or UTF-8 with a BOM; Windows PowerShell 5 writes the BOM by default and both are accepted.
 
 ## Migrating v0.5 input
 

@@ -131,7 +131,7 @@ def main(argv: list[str] | None = None) -> int:
             destination = Path(args.output)
             if destination.exists():
                 raise FileExistsError(f"refusing to overwrite existing migration output: {destination}")
-            source_data = json.loads(Path(args.assessment).read_text(encoding="utf-8"))
+            source_data = json.loads(Path(args.assessment).read_text(encoding="utf-8-sig"))
             migrated = migrate_assessment(source_data)
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_text(

@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented here.
 
+## Unreleased
+
+- Published the documented validation template as an active GitHub Actions workflow (Python 3.9/3.11/3.12) now that a workflow-scope credential is available, and replaced the "workflows directory must not exist" test with one that keeps the active workflow aligned with the documented template steps.
+- Accepted UTF-8 BOM input in `load_assessment` and `ai-ready migrate`; Windows PowerShell 5 writes the BOM by default, and the previous behavior rejected those files with a JSON decode error.
+- Rejected `stage: null` at validation time to match the public JSON Schema; it previously passed validation and then crashed scoring with an `AttributeError`.
+- Added regression tests for the four decision-tier boundaries (25/26, 45/46, 60/61), BOM input, and null stage.
+- Added a full Chinese README (`README.zh-CN.md`) and two Mermaid diagrams in both languages: the seven-dimension review flow and the veto-then-tier scoring flow.
+- Added a Cursor cloud-agent environment definition (`.cursor/environment.json`).
+
 ## v0.6.0 — 2026-07-16
 
 - Added an explicit `schema_version: "0.6"` contract and a non-destructive `ai-ready migrate` path for known unversioned v0.5 assessments.

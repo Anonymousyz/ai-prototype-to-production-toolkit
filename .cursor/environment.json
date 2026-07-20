@@ -1,0 +1,4 @@
+{
+  "name": "ai-prototype-to-production-toolkit",
+  "install": "python3 -m pip install -e ."
+}

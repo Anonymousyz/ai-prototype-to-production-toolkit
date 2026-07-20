@@ -106,6 +106,31 @@ class ReadinessScoringTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "system_name"):
             validate_assessment(data)
 
+    def test_rejects_null_stage_like_the_public_schema(self):
+        data = deepcopy(self.sample); data["stage"] = None
+        with self.assertRaisesRegex(ValueError, "stage"):
+            validate_assessment(data)
+
+    def test_loads_assessment_with_utf8_bom(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "bom_assessment.json"
+            payload = json.dumps(self.sample, ensure_ascii=False, indent=2)
+            path.write_bytes(b"\xef\xbb\xbf" + payload.encode("utf-8"))
+            result = score_assessment(load_assessment(path))
+            self.assertEqual((result.total, result.max_total), (42, 70))
+
+    def test_decision_tier_boundaries_are_stable(self):
+        for total, expected in (
+            (25, "Demo only"),
+            (26, "Controlled pilot only"),
+            (45, "Controlled pilot only"),
+            (46, "Small production trial with monitoring"),
+            (60, "Small production trial with monitoring"),
+            (61, "Stronger production readiness, still check controls"),
+        ):
+            with self.subTest(total=total):
+                self.assertEqual(decision(total, 70, False), expected)
+
     def test_rejects_boolean_as_numeric_score(self):
         data = deepcopy(self.sample); data["scores"]["business_workflow_and_value"] = True
         with self.assertRaisesRegex(ValueError, "numeric, not boolean"):

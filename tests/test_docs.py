@@ -69,9 +69,16 @@ class DocumentationContractTests(unittest.TestCase):
             for phrase in expected:
                 self.assertIn(phrase, text, f"{relative}: {phrase}")
 
-    def test_workflow_is_only_an_inactive_template(self):
-        self.assertFalse((ROOT / ".github" / "workflows").exists())
-        self.assertTrue((ROOT / "docs" / "github_actions_validate.template.yml").exists())
+    def test_active_workflow_matches_documented_template_steps(self):
+        template = (ROOT / "docs" / "github_actions_validate.template.yml").read_text(encoding="utf-8-sig")
+        workflow = (ROOT / ".github" / "workflows" / "validate.yml").read_text(encoding="utf-8-sig")
+        for step in (
+            "python -m pip install -e .",
+            "ai-ready score examples/sample_assessment.json",
+            "python -m unittest discover -s tests -v",
+        ):
+            self.assertIn(step, template)
+            self.assertIn(step, workflow)
 
     def test_portfolio_evidence_map_is_present_and_linked(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8-sig")

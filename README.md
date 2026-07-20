@@ -3,6 +3,9 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![GitHub release](https://img.shields.io/github/v/release/Anonymousyz/ai-prototype-to-production-toolkit)
+[![validate](https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/actions/workflows/validate.yml/badge.svg)](https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/actions/workflows/validate.yml)
+
+[中文说明](README.zh-CN.md)
 
 <p align="center">
   <img src="assets/ai-ready-overview.svg" alt="AI Prototype-to-Production Toolkit: demo, review, veto gates and human decision" width="100%">
@@ -123,6 +126,33 @@ Top gaps:
 - Rollback owner is unclear
 ```
 
+### How the score becomes a decision label
+
+The CLI adds up seven fixed-maximum dimensions, then applies two rules in order: any true veto blocks deployment regardless of the total, and only then does the total map to a discussion tier.
+
+```mermaid
+flowchart TB
+    subgraph dims["Seven dimensions, fixed maxima, 70 points total"]
+        direction LR
+        D1["Business workflow<br/>& value — 10"]
+        D2["Data authorization<br/>& boundaries — 12"]
+        D3["Output quality<br/>& evaluation — 12"]
+        D4["Human review &<br/>responsibility — 10"]
+        D5["Access, logs,<br/>auditability — 10"]
+        D6["Integration, ops,<br/>cost — 10"]
+        D7["Adoption &<br/>improvement — 6"]
+    end
+    dims --> V{"Any of the 8 vetoes true?<br/><i>unauthorized data · sensitive data to unapproved model ·<br/>high-risk action without human review · no logs ·<br/>no rollback owner · unevaluable output quality ·<br/>uncontrolled cost · demo marketed as production</i>"}
+    V -- "yes" --> STOP["Do not proceed: veto item present<br/>(any total; exit code 1)"]
+    V -- "no" --> T{"Total, normalized to 70"}
+    T -- "≤ 25" --> R1["Demo only"]
+    T -- "> 25, ≤ 45" --> R2["Controlled pilot only"]
+    T -- "> 45, ≤ 60" --> R3["Small production trial<br/>with monitoring"]
+    T -- "> 60" --> R4["Stronger production readiness,<br/>still check controls"]
+```
+
+The tier is a discussion label for the review meeting, not an approval. Tier boundaries are locked by regression tests.
+
 Generate Markdown or static HTML:
 
 ```bash
@@ -157,7 +187,7 @@ See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples
 | Eval integration | [`integrations/promptfoo/README.md`](integrations/promptfoo/README.md) | Show how authorized model-evaluation results can become human-reviewed evidence without auto-converting pass rates into readiness scores |
 | Decision handoff | [`docs/readiness_to_decision_handoff.md`](docs/readiness_to_decision_handoff.md) | Move verified gaps and evidence into R2D without copying one toolkit's score into the other |
 | Examples | [`docs/demo.md`](docs/demo.md), [`examples/sample_assessment.json`](examples/sample_assessment.json), [`examples/internal_policy_search_assistant.json`](examples/internal_policy_search_assistant.json), [`examples/customer_support_action_agent.json`](examples/customer_support_action_agent.json), [`examples/synthetic_industrial_safety_procedure_assistant.json`](examples/synthetic_industrial_safety_procedure_assistant.json) | Demonstrate controlled-pilot, stronger-readiness, veto, and regulated-workflow behavior |
-| Packaging | [`pyproject.toml`](pyproject.toml), [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) | Install locally; CI remains a documented template until the repository credential can publish workflows |
+| Packaging and CI | [`pyproject.toml`](pyproject.toml), [`.github/workflows/validate.yml`](.github/workflows/validate.yml) | Install locally; the validation workflow runs on every push (Python 3.9/3.11/3.12) and is documented in [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) |
 | Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md), [`articles/002_ai_deployment_is_a_responsibility_problem.md`](articles/002_ai_deployment_is_a_responsibility_problem.md) | Technical-report style articles for GitHub |
 | Benchmarking | [`docs/benchmark_gap_analysis.md`](docs/benchmark_gap_analysis.md), [`SOURCES.md`](SOURCES.md) | Explain what high-quality projects were benchmarked |
 
@@ -224,6 +254,8 @@ The current release uses a fixed but uncalibrated 70-point scale. Every dimensio
 ---
 
 ## Chinese summary / 中文简介
+
+完整中文版见 [README.zh-CN.md](README.zh-CN.md),10 分钟上手见 [docs/quickstart_zh.md](docs/quickstart_zh.md)。
 
 这是一套面向 **FDE / AI 落地 / AI 治理 / 受监管行业部署** 的公开工具箱，用来判断一个 AI 原型是否具备进入真实业务流程的准备度。
 

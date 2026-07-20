@@ -24,7 +24,7 @@ The roadmap prioritizes evidence and user value over repository-count or badge g
 - [ ] Add at least 20 independently reviewed fictional or permission-cleared assessment fixtures
 - [ ] Measure inter-rater agreement for category scoring
 - [ ] Decide on PyPI naming and publication after dependency and namespace review
-- [ ] Publish an active GitHub Actions workflow only with explicit workflow-scope authorization
+- [x] Publish an active GitHub Actions workflow only with explicit workflow-scope authorization
 
 ## v1.0 — Validated public release
 
