@@ -9,6 +9,8 @@ All notable changes to this project are documented here.
 - Rejected `stage: null` at validation time to match the public JSON Schema; it previously passed validation and then crashed scoring with an `AttributeError`.
 - Added regression tests for the four decision-tier boundaries (25/26, 45/46, 60/61), BOM input, and null stage.
 - Added a full Chinese README (`README.zh-CN.md`) and two Mermaid diagrams in both languages: the seven-dimension review flow and the veto-then-tier scoring flow.
+- Added a schema cross-validation test that runs every example through the public JSON Schema when `jsonschema` is installed (CI installs it), so the runtime validator and the published contract cannot drift apart silently.
+- Added an `AGENTS.md` that binds coding agents to the frozen 70-point/eight-veto contract, the zero-dependency policy, and the docs-backed-by-tests discipline.
 - Added a Cursor cloud-agent environment definition (`.cursor/environment.json`).
 
 ## v0.6.0 — 2026-07-16

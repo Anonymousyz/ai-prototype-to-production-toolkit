@@ -43,6 +43,24 @@ class ReadinessScoringTests(unittest.TestCase):
             with self.subTest(path=path.name):
                 validate_assessment(json.loads(path.read_text(encoding="utf-8")))
 
+    def test_all_examples_also_validate_against_public_json_schema(self):
+        # Runs the same fixtures through the public JSON Schema so the runtime
+        # validator and the published contract cannot drift apart silently
+        # (the stage:null divergence was exactly this failure mode).
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("jsonschema is not installed")
+        schema = json.loads(
+            (ROOT / "schemas" / "readiness_assessment.schema.json").read_text(encoding="utf-8")
+        )
+        validator_cls = jsonschema.validators.validator_for(schema)
+        validator_cls.check_schema(schema)
+        validator = validator_cls(schema, format_checker=jsonschema.FormatChecker())
+        for path in sorted((ROOT / "examples").glob("*.json")):
+            with self.subTest(path=path.name):
+                validator.validate(json.loads(path.read_text(encoding="utf-8")))
+
     def test_veto_overrides_score(self):
         self.assertEqual(decision(70, 70, True), "Do not proceed: veto item present")
 
