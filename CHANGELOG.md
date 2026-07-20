@@ -12,6 +12,7 @@ All notable changes to this project are documented here.
 - Added a schema cross-validation test that runs every example through the public JSON Schema when `jsonschema` is installed (CI installs it), so the runtime validator and the published contract cannot drift apart silently.
 - Added an `AGENTS.md` that binds coding agents to the frozen 70-point/eight-veto contract, the zero-dependency policy, and the docs-backed-by-tests discipline.
 - Added a Cursor cloud-agent environment definition (`.cursor/environment.json`).
+- Applied bilingual documentation-review fixes: unified the readiness translation to 就绪度, translated "override" as 推翻改判 instead of colliding with the veto term, relabeled the 52/70 example with its actual decision tier (small production trial), matched the veto wording in diagrams to the canonical key names, and clarified that a veto blocks the verdict regardless of the printed total.
 
 ## v0.6.0 — 2026-07-16
 

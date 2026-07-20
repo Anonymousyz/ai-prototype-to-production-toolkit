@@ -31,7 +31,7 @@ A local-first toolkit for teams deciding whether an AI prototype has enough stru
 
 The toolkit is designed for the handoff between a working prototype and an accountable deployment decision. Product owners, forward-deployed engineers, solution architects, risk practitioners, security reviewers, and operating teams often look at the same system from different angles. This repository gives them a common review surface: workflow definition, data authorization, evaluation, human review, access and logging, operating ownership, cost, adoption, and rollback.
 
-It includes a fixed 70-point local CLI, eight named veto conditions, JSON schema, checklists, scorecards, prompts, system documentation templates, risk and evaluation artifacts, pilot-memo templates, and four fictional assessment cases. The cases show controlled-pilot, stronger-readiness, regulated-workflow, and veto behavior without exposing client or employer information.
+It includes a fixed 70-point local CLI, eight named veto conditions, JSON schema, checklists, scorecards, prompts, system documentation templates, risk and evaluation artifacts, pilot-memo templates, and four fictional assessment cases. The cases show controlled-pilot, small-production-trial, regulated-workflow, and veto behavior without exposing client or employer information.
 
 > [!IMPORTANT]
 > The score is an author-designed decision-support heuristic. It does not certify safety, compliance, security, fairness, or production approval. v0.6 preserves the seven dimensions, 70-point scale, and eight veto keys while adding an explicit schema version, safe v0.5 migration, and script-free static HTML reporting. The CLI validates declared structure; it does not verify source truth, reviewer identity, or real-world operating performance. Read the [method status and evidence boundary](docs/method_status.md) before using it in a material decision.
@@ -142,8 +142,8 @@ flowchart TB
         D6["Integration, ops,<br/>cost — 10"]
         D7["Adoption &<br/>improvement — 6"]
     end
-    dims --> V{"Any of the 8 vetoes true?<br/><i>unauthorized data · sensitive data to unapproved model ·<br/>high-risk action without human review · no logs ·<br/>no rollback owner · unevaluable output quality ·<br/>uncontrolled cost · demo marketed as production</i>"}
-    V -- "yes" --> STOP["Do not proceed: veto item present<br/>(any total; exit code 1)"]
+    dims --> V{"Any of the 8 vetoes true?<br/><i>unauthorized data · sensitive data to unapproved model ·<br/>high-risk decision without human review · no logs ·<br/>no rollback owner · unevaluable output quality ·<br/>uncontrolled cost · demo marketed as production</i>"}
+    V -- "yes" --> STOP["Do not proceed: veto item present<br/>(regardless of total; exit code 1)"]
     V -- "no" --> T{"Total, normalized to 70"}
     T -- "≤ 25" --> R1["Demo only"]
     T -- "> 25, ≤ 45" --> R2["Controlled pilot only"]
@@ -186,7 +186,7 @@ See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples
 | Portfolio evidence map | [`docs/portfolio_evidence_map.md`](docs/portfolio_evidence_map.md) | Show what a technical, governance, or FDE interviewer can inspect and what the public artifacts do not prove |
 | Eval integration | [`integrations/promptfoo/README.md`](integrations/promptfoo/README.md) | Show how authorized model-evaluation results can become human-reviewed evidence without auto-converting pass rates into readiness scores |
 | Decision handoff | [`docs/readiness_to_decision_handoff.md`](docs/readiness_to_decision_handoff.md) | Move verified gaps and evidence into R2D without copying one toolkit's score into the other |
-| Examples | [`docs/demo.md`](docs/demo.md), [`examples/sample_assessment.json`](examples/sample_assessment.json), [`examples/internal_policy_search_assistant.json`](examples/internal_policy_search_assistant.json), [`examples/customer_support_action_agent.json`](examples/customer_support_action_agent.json), [`examples/synthetic_industrial_safety_procedure_assistant.json`](examples/synthetic_industrial_safety_procedure_assistant.json) | Demonstrate controlled-pilot, stronger-readiness, veto, and regulated-workflow behavior |
+| Examples | [`docs/demo.md`](docs/demo.md), [`examples/sample_assessment.json`](examples/sample_assessment.json), [`examples/internal_policy_search_assistant.json`](examples/internal_policy_search_assistant.json), [`examples/customer_support_action_agent.json`](examples/customer_support_action_agent.json), [`examples/synthetic_industrial_safety_procedure_assistant.json`](examples/synthetic_industrial_safety_procedure_assistant.json) | Demonstrate controlled-pilot, small-production-trial, veto, and regulated-workflow behavior |
 | Packaging and CI | [`pyproject.toml`](pyproject.toml), [`.github/workflows/validate.yml`](.github/workflows/validate.yml) | Install locally; the validation workflow runs on every push (Python 3.9/3.11/3.12) and is documented in [`docs/github_actions_validate.template.yml`](docs/github_actions_validate.template.yml) |
 | Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md), [`articles/002_ai_deployment_is_a_responsibility_problem.md`](articles/002_ai_deployment_is_a_responsibility_problem.md) | Technical-report style articles for GitHub |
 | Benchmarking | [`docs/benchmark_gap_analysis.md`](docs/benchmark_gap_analysis.md), [`SOURCES.md`](SOURCES.md) | Explain what high-quality projects were benchmarked |
@@ -257,7 +257,7 @@ The current release uses a fixed but uncalibrated 70-point scale. Every dimensio
 
 完整中文版见 [README.zh-CN.md](README.zh-CN.md),10 分钟上手见 [docs/quickstart_zh.md](docs/quickstart_zh.md)。
 
-这是一套面向 **FDE / AI 落地 / AI 治理 / 受监管行业部署** 的公开工具箱，用来判断一个 AI 原型是否具备进入真实业务流程的准备度。
+这是一套面向 **FDE / AI 落地 / AI 治理 / 受监管行业部署** 的公开工具箱，用来判断一个 AI 原型是否具备进入真实业务流程的就绪度。
 
 它不是单篇文章，也不是单条 prompt，而是：
 
@@ -270,7 +270,7 @@ The current release uses a fixed but uncalibrated 70-point scale. Every dimensio
 - fictional case；
 - NIST AI RMF / OWASP LLM Top 10 对照；
 - 一个可安装运行、可迁移 v0.5 输入并生成 Markdown/JSON/静态 HTML 报告的 CLI；
-- 四个分别展示“受控试点、较强准备度、一票否决、受监管工业流程”的虚构案例。
+- 四个分别展示“受控试点、小规模生产试验、一票否决、受监管工业流程”的虚构案例。
 
 ---
 
