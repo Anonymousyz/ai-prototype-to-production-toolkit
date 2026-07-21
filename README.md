@@ -191,7 +191,7 @@ See [`docs/cli.md`](docs/cli.md), [`docs/demo.md`](docs/demo.md), and [`examples
 | Public writing | [`articles/001_from_ai_demo_to_production.md`](articles/001_from_ai_demo_to_production.md), [`articles/002_ai_deployment_is_a_responsibility_problem.md`](articles/002_ai_deployment_is_a_responsibility_problem.md) | Technical-report style articles for GitHub |
 | Benchmarking | [`docs/benchmark_gap_analysis.md`](docs/benchmark_gap_analysis.md), [`SOURCES.md`](SOURCES.md) | Explain what high-quality projects were benchmarked |
 
-This repository is one part of a public operating path. Use the [Awesome AI Production Readiness list](https://github.com/Anonymousyz/awesome-ai-production-readiness) to identify tools for a gap, then use the [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit) when a readiness assessment must become a human decision packet.
+This repository is one part of a public operating path. For a conversational first pass, the [AI Launch Red Team skill](https://github.com/Anonymousyz/ai-launch-red-team) runs the same eight vetoes against a pasted launch plan inside Claude Code, Cursor, or Codex. Use the [Awesome AI Production Readiness list](https://github.com/Anonymousyz/awesome-ai-production-readiness) to identify tools for a gap, then use the [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit) when a readiness assessment must become a human decision packet.
 
 ---
 

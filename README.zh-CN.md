@@ -148,7 +148,7 @@ ai-ready migrate legacy-v05.json --output assessment-v06.json
 | 方法边界与校准路线 | [`docs/method_status.md`](docs/method_status.md)、[`docs/roadmap.md`](docs/roadmap.md) |
 | 持续集成 | [`.github/workflows/validate.yml`](.github/workflows/validate.yml)(Python 3.9/3.11/3.12,每次 push 运行) |
 
-配套仓库:先用 [Awesome AI Production Readiness](https://github.com/Anonymousyz/awesome-ai-production-readiness) 找工具补缺口,评估要变成负责人可拍板的决策包时用 [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit)。
+配套仓库:想先来一轮对话式快检,用 [AI 上线否决卡技能](https://github.com/Anonymousyz/ai-launch-red-team)(同一套 8 条否决,粘贴方案即可红队);先用 [Awesome AI Production Readiness](https://github.com/Anonymousyz/awesome-ai-production-readiness) 找工具补缺口,评估要变成负责人可拍板的决策包时用 [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit)。
 
 ## 边界
 
