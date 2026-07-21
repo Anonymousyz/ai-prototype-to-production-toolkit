@@ -69,6 +69,23 @@ class DocumentationContractTests(unittest.TestCase):
             for phrase in expected:
                 self.assertIn(phrase, text, f"{relative}: {phrase}")
 
+    def test_readme_relative_links_resolve(self):
+        # Guards reader navigation in both languages: renames must fail here
+        # instead of silently breaking README links. Fenced code is stripped;
+        # images and directory links are included.
+        link = re.compile(r"!?\[[^\]]*\]\(<?([^)<>\s]+?)>?(?:\s+\"[^\"]*\")?\)")
+        for name in ("README.md", "README.zh-CN.md"):
+            text = (ROOT / name).read_text(encoding="utf-8-sig")
+            text = re.sub(r"^```.*?^```", "", text, flags=re.DOTALL | re.MULTILINE)
+            targets = link.findall(text)
+            self.assertTrue(targets, name)
+            for target in targets:
+                if target.startswith(("http://", "https://", "mailto:", "#")):
+                    continue
+                path = target.split("#", 1)[0]
+                with self.subTest(readme=name, link=target):
+                    self.assertTrue((ROOT / path).exists(), f"{name}: broken relative link {target}")
+
     def test_active_workflow_matches_documented_template_steps(self):
         template = (ROOT / "docs" / "github_actions_validate.template.yml").read_text(encoding="utf-8-sig")
         workflow = (ROOT / ".github" / "workflows" / "validate.yml").read_text(encoding="utf-8-sig")
