@@ -7,6 +7,8 @@
 
 [中文说明](README.zh-CN.md)
 
+For project status, scope, feedback, and public-material boundaries, see [`STATUS.md`](STATUS.md).
+
 <p align="center">
   <img src="assets/ai-ready-overview.svg" alt="AI Prototype-to-Production Toolkit: demo, review, veto gates and human decision" width="100%">
 </p>
