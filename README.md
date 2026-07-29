@@ -11,7 +11,7 @@
   <img src="assets/ai-ready-overview.svg" alt="AI Prototype-to-Production Toolkit: demo, review, veto gates and human decision" width="100%">
 </p>
 
-## Quick start
+## Install and generate a sample report
 
 ```bash
 python -m pip install "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/releases/download/v0.6.0/ai_ready-0.6.0-py3-none-any.whl"
@@ -74,7 +74,7 @@ It helps the team answer:
 
 ---
 
-## Quick start
+## Start with a workshop or local checkout
 
 ### Option A: human workshop
 
@@ -181,7 +181,7 @@ This repository is one part of a public operating path. For a conversational fir
 
 ## Core framework
 
-A prototype becomes production-ready only when the team can answer questions across seven dimensions:
+A deployment review should cover seven dimensions:
 
 1. **Business workflow and value:** Which workflow changes, and how is value measured?
 2. **Data source, authorization, and boundaries:** What data is used, and under what authorization?
@@ -239,7 +239,7 @@ The current release uses a fixed but uncalibrated 70-point scale. Every dimensio
 
 ## Chinese summary / 中文简介
 
-完整中文版见 [README.zh-CN.md](README.zh-CN.md),10 分钟上手见 [docs/quickstart_zh.md](docs/quickstart_zh.md)。
+完整中文版见 [README.zh-CN.md](README.zh-CN.md)，起步说明见 [docs/quickstart_zh.md](docs/quickstart_zh.md)。
 
 这是一套面向 **FDE / AI 落地 / AI 治理 / 受监管行业部署** 的公开工具箱，用来判断一个 AI 原型是否具备进入真实业务流程的就绪度。
 
