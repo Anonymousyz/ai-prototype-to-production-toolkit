@@ -12,7 +12,7 @@ This page maps common AI-deployment questions to artifacts a reviewer can inspec
 | Is evaluation treated as an operating question? | [model evaluation plan](../templates/model_evaluation_plan.md), risk register, fictional assessment cases | Failure modes, thresholds, escalation, rollback, and gap documentation | A real-world benchmark result |
 | Are governance and security part of the implementation discussion? | [NIST crosswalk](nist_ai_rmf_crosswalk.md), [OWASP mapping](owasp_llm_top10_mapping.md), system card | Practical links between controls, risks, and workflow decisions | Legal advice, a security audit, or compliance certification |
 | Can a team prepare for a human decision meeting? | [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit) | Alternatives, criteria, affected stakeholders, reversibility, trade-offs, and a pre-mortem | Approval, source authentication, or implementation authority |
-| Can a reviewer trace the tooling landscape behind a design? | [Awesome AI Production Readiness](https://github.com/Anonymousyz/awesome-ai-production-readiness) | Curation policy, machine-readable catalog, archived-resource labeling, duplicate checks, and link report | Endorsement or security assessment of listed projects |
+| Can a reviewer inspect the tools and standards used to frame a design? | [Awesome AI Production Readiness](https://github.com/Anonymousyz/awesome-ai-production-readiness) | Curation policy, machine-readable catalog, archived-resource labeling, duplicate checks, and link report | Endorsement or security assessment of listed projects |
 
 ## Suggested review path
 
