@@ -8,7 +8,7 @@
 - 项目负责人需要把数据、评估、复核、运行和回滚条件写清；
 - 风控、合规或审计人员需要据此提出问题并留下记录。
 
-## 15 分钟完成一轮初步评审
+## 完成一轮初步评审
 
 1. 用 `templates/fde_discovery_interview_guide.md` 访谈业务方；
 2. 用 `templates/ai_prototype_readiness_checklist.md` 逐项检查；
