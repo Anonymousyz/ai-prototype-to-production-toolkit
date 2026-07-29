@@ -28,7 +28,7 @@ ai-ready report assessment.json --format html --output report.html
 
 打开 `report.html`，查看申报得分、否决状态、各维度缺口和人工复核负责人。本地源码安装则用 `pip install -e .`。
 
-`ai-ready score examples/sample_assessment.json` 的预期输出:
+`ai-ready score examples/sample_assessment.json` 的预期输出：
 
 ```text
 System: Fictional Supplier Document Assistant
@@ -63,11 +63,11 @@ flowchart LR
 
 | 评审层 | 团队必须回答 | 对应产物 |
 |---|---|---|
-| 业务流程与价值 | 哪个决策或任务被改变?价值和损害如何观测? | 流程图、调研指南、试点备忘录 |
-| 数据与授权 | 系统可以读取、留存、外发什么?禁止什么? | 数据边界申报、AI 系统卡 |
-| 输出质量与评估 | 什么算合格输出、失败、回归、不可接受的风险? | 评估计划、测试用例、缺口清单 |
-| 人工复核与责任链 | 谁能批准、推翻改判、升级上报、暂停、叫停?出错谁负责? | 复核设计、否决记录、决策负责人 |
-| 运行 | 权限、日志、成本、事故、监控、回滚归谁? | 风险登记册、运行手册输入 |
+| 业务流程与价值 | 哪个决策或任务会改变？价值和损害怎样观测？ | 流程图、调研指南、试点备忘录 |
+| 数据与授权 | 系统可以读取、留存、外发什么？禁止什么？ | 数据边界申报、AI 系统卡 |
+| 输出质量与评估 | 什么算合格输出、失败、回归或不可接受的风险？ | 评估计划、测试用例、缺口清单 |
+| 人工复核与责任链 | 谁能批准、改判、升级、暂停或叫停？出错由谁处理？ | 复核设计、否决记录、决策负责人 |
+| 运行 | 权限、日志、成本、事故、监控和回滚由谁负责？ | 风险登记册、运行手册输入 |
 
 ## 分数如何变成决策标签
 
@@ -75,7 +75,7 @@ CLI 先汇总七个固定满分的维度，再检查否决条件。任一否决�
 
 ```mermaid
 flowchart TB
-    subgraph dims["七个维度,固定满分,共 70 分"]
+    subgraph dims["七个维度，固定满分，共 70 分"]
         direction LR
         D1["业务流程与价值 10"]
         D2["数据授权与边界 12"]
@@ -85,26 +85,26 @@ flowchart TB
         D6["集成·运维·成本 10"]
         D7["组织采纳与改进 6"]
     end
-    dims --> V{"8 条否决任一为真?<br/><i>未经授权使用数据 · 敏感数据入未批准模型 ·<br/>高风险决策无人工复核 · 无日志 ·<br/>无回滚负责人 · 输出质量不可评估 ·<br/>成本失控 · 演示冒充生产</i>"}
-    V -- "是" --> STOP["不得推进:存在否决项<br/>(无论总分多少;退出码 1)"]
-    V -- "否" --> T{"总分(归一化到 70)"}
+    dims --> V{"8 条否决中是否有任一项为真？<br/><i>未经授权使用数据 · 敏感数据入未批准模型 ·<br/>高风险决策无人工复核 · 无日志 ·<br/>无回滚负责人 · 输出质量不可评估 ·<br/>成本失控 · 演示冒充生产</i>"}
+    V -- "是" --> STOP["不得推进：存在否决项<br/>（无论总分多少；退出码 1）"]
+    V -- "否" --> T{"总分（归一化到 70）"}
     T -- "≤ 25" --> R1["仅供演示"]
-    T -- "> 25, ≤ 45" --> R2["受控试点候选"]
-    T -- "> 45, ≤ 60" --> R3["可讨论小范围试运行,<br/>须明确监控与回滚"]
-    T -- "> 60" --> R4["结构准备较充分,<br/>仍须逐项核查控制条件"]
+    T -- "> 25，≤ 45" --> R2["受控试点候选"]
+    T -- "> 45，≤ 60" --> R3["可讨论小范围试运行，<br/>须明确监控与回滚"]
+    T -- "> 60" --> R4["结构准备较充分，<br/>仍须逐项核查控制条件"]
 ```
 
 这些档位只用于帮助评审会议集中讨论缺口，不代表批准；档位边界由回归测试锁定。
 
 ## 快速开始
 
-### 方式 A:工作坊(不写代码)
+### 方式 A：工作坊（不写代码）
 
-1. 复制[就绪度检查清单](templates/ai_prototype_readiness_checklist.md),团队各角色对照打分([计分卡](scorecards/ai_prototype_readiness_scorecard.md));
-2. 填写[风险登记册](templates/risk_register.md)与 [AI 系统卡](templates/ai_system_card.md);
+1. 复制[就绪度检查清单](templates/ai_prototype_readiness_checklist.md)，由团队各角色对照[计分卡](scorecards/ai_prototype_readiness_scorecard.md)打分。
+2. 填写[风险登记册](templates/risk_register.md)与 [AI 系统卡](templates/ai_system_card.md)。
 3. 用[试点评审备忘录](templates/pilot_review_memo.md)形成书面决定。
 
-### 方式 B:CLI
+### 方式 B：CLI
 
 ```bash
 python -m venv .venv
@@ -116,20 +116,20 @@ ai-ready report examples/sample_assessment.json --format html --output report.ht
 ai-ready migrate legacy-v05.json --output assessment-v06.json
 ```
 
-命令、退出码、v0.5 迁移与输入契约见 [`docs/cli.md`](docs/cli.md);输入文件接受带或不带 BOM 的 UTF-8。
+命令、退出码、v0.5 迁移与输入契约见 [`docs/cli.md`](docs/cli.md)。输入文件可带或不带 BOM，编码为 UTF-8。
 
 ## 四个虚构案例
 
 | 案例 | 演示的行为 |
 |---|---|
-| [供应商文档助手](examples/sample_assessment.json) | 42/70,受控试点档 |
-| [内部制度检索助手](examples/internal_policy_search_assistant.json) | 52/70,小规模生产试验档(四例中就绪度最高) |
-| [客服自动操作代理](examples/customer_support_action_agent.json) | 触发两条否决,无论总分多少均判"不得推进",退出码 1 |
-| [工业安全规程助手](examples/synthetic_industrial_safety_procedure_assistant.json) | 受监管流程语境,44/70 |
+| [供应商文档助手](examples/sample_assessment.json) | 42/70，受控试点档 |
+| [内部制度检索助手](examples/internal_policy_search_assistant.json) | 52/70，小规模生产试验档（四例中就绪度最高） |
+| [客服自动操作代理](examples/customer_support_action_agent.json) | 触发两条否决；无论总分多少，均判为“不得推进”，退出码为 1 |
+| [工业安全规程助手](examples/synthetic_industrial_safety_procedure_assistant.json) | 受监管流程语境，44/70 |
 
-案例全部虚构,不含任何客户、雇主或真实运营数据。
+案例均为虚构，不含客户、雇主或真实运营数据。
 
-## 仓库地图(节选)
+## 仓库地图（节选）
 
 | 用途 | 位置 |
 |---|---|
@@ -140,9 +140,13 @@ ai-ready migrate legacy-v05.json --output assessment-v06.json
 | 评估结果→就绪证据的受控接入 | [`integrations/promptfoo/`](integrations/promptfoo/) |
 | 就绪评估→决策包的交接 | [`docs/readiness_to_decision_handoff.md`](docs/readiness_to_decision_handoff.md) |
 | 方法边界与校准路线 | [`docs/method_status.md`](docs/method_status.md)、[`docs/roadmap.md`](docs/roadmap.md) |
-| 持续集成 | [`.github/workflows/validate.yml`](.github/workflows/validate.yml)(Python 3.9/3.11/3.12,每次 push 运行) |
+| 持续集成 | [`.github/workflows/validate.yml`](.github/workflows/validate.yml)（Python 3.9/3.11/3.12，每次推送时运行） |
 
-配套仓库:想先来一轮对话式快检,用 [AI 上线否决卡技能](https://github.com/Anonymousyz/ai-launch-red-team)(同一套 8 条否决,粘贴方案即可红队);先用 [Awesome AI Production Readiness](https://github.com/Anonymousyz/awesome-ai-production-readiness) 找工具补缺口,评估要变成负责人可拍板的决策包时用 [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit)。
+配套仓库可按不同需要使用：
+
+- 需要先对一份方案作结构化追问，可用 [AI 上线否决卡技能](https://github.com/Anonymousyz/ai-launch-red-team)；
+- 需要为已知缺口查找工具和标准，可看 [Awesome AI Production Readiness](https://github.com/Anonymousyz/awesome-ai-production-readiness)；
+- 需要把评审材料整理成由负责人审议的决策包，可用 [Research-to-Decision Toolkit](https://github.com/Anonymousyz/research-to-decision-toolkit)。
 
 ## 边界
 
@@ -150,4 +154,4 @@ ai-ready migrate legacy-v05.json --output assessment-v06.json
 
 ## 许可证
 
-MIT,见 [`LICENSE`](LICENSE)。
+MIT，见 [`LICENSE`](LICENSE)。
