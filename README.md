@@ -118,13 +118,13 @@ The CLI adds up seven fixed-maximum dimensions, then applies two rules in order:
 flowchart TB
     subgraph dims["Seven dimensions, fixed maxima, 70 points total"]
         direction LR
-        D1["Business workflow<br/>& value — 10"]
-        D2["Data authorization<br/>& boundaries — 12"]
-        D3["Output quality<br/>& evaluation — 12"]
-        D4["Human review &<br/>responsibility — 10"]
-        D5["Access, logs,<br/>auditability — 10"]
-        D6["Integration, ops,<br/>cost — 10"]
-        D7["Adoption &<br/>improvement — 6"]
+        D1["Business workflow<br/>& value: 10"]
+        D2["Data authorization<br/>& boundaries: 12"]
+        D3["Output quality<br/>& evaluation: 12"]
+        D4["Human review &<br/>responsibility: 10"]
+        D5["Access, logs,<br/>auditability: 10"]
+        D6["Integration, ops,<br/>cost: 10"]
+        D7["Adoption &<br/>improvement: 6"]
     end
     dims --> V{"Any of the 8 vetoes true?<br/><i>unauthorized data · sensitive data to unapproved model ·<br/>high-risk decision without human review · no logs ·<br/>no rollback owner · unevaluable output quality ·<br/>uncontrolled cost · demo marketed as production</i>"}
     V -- "yes" --> STOP["Do not proceed: veto item present<br/>(regardless of total; exit code 1)"]
