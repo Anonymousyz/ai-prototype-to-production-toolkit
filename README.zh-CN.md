@@ -5,7 +5,7 @@
 ![GitHub release](https://img.shields.io/github/v/release/Anonymousyz/ai-prototype-to-production-toolkit)
 [![validate](https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/actions/workflows/validate.yml/badge.svg)](https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/actions/workflows/validate.yml)
 
-[English README](README.md) · [10 分钟中文上手](docs/quickstart_zh.md)
+[English README](README.md) · [中文起步说明](docs/quickstart_zh.md)
 
 这个本地优先工具包用于评审 AI 原型进入真实业务前的准备情况。
 
@@ -18,7 +18,7 @@
 
 工具把业务流程、数据边界、评估、人工复核、权限与日志、运行和回滚放进同一份材料。团队据此讨论下一步是补充材料、进入受控试点，还是暂缓推进。
 
-## 60 秒试用
+## 生成一份示例报告
 
 ```bash
 python -m pip install "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/releases/download/v0.6.0/ai_ready-0.6.0-py3-none-any.whl"
@@ -26,7 +26,7 @@ ai-ready example --output assessment.json
 ai-ready report assessment.json --format html --output report.html
 ```
 
-打开 `report.html`,查看申报得分、否决状态、各维度缺口和人工复核负责人。本地源码安装则用 `pip install -e .`。
+打开 `report.html`，查看申报得分、否决状态、各维度缺口和人工复核负责人。本地源码安装则用 `pip install -e .`。
 
 `ai-ready score examples/sample_assessment.json` 的预期输出:
 
@@ -45,7 +45,7 @@ Top gaps:
 - Rollback owner is unclear
 ```
 
-## 评审框架:七个维度
+## 评审框架：七个维度
 
 七个维度分别追问业务流程、数据、评估、复核、可追溯性、运行和组织采纳。缺少其中任何一项，都应在评审材料中写明。
 
