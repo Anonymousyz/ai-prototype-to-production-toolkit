@@ -8,8 +8,9 @@
 4. Mark any veto items.
 5. Score the prototype.
 6. Identify the top five blockers.
-7. Run a controlled pilot only if no veto item exists.
-8. Reassess after the pilot.
+7. Use the result to decide whether to close gaps, prepare a controlled pilot, or defer the work.
+8. Treat the absence of a veto as one condition for discussion, not as pilot approval.
+9. Reassess after the pilot.
 
 ## Minimum evidence package
 
