@@ -207,9 +207,7 @@ flowchart LR
 
 ## Where it fits
 
-This is **not** an LLM evaluation framework like OpenAI Evals, promptfoo, DeepEval, Phoenix, Opik, or RAGAS.
-
-It sits before or beside those tools as a deployment-readiness layer:
+Use this toolkit alongside evaluation, observability, guardrail, and responsible-AI tools. Those tools address particular technical or control questions; this toolkit records the workflow, evidence, controls, and operating responsibility needed for a deployment discussion.
 
 | Tool category | Examples | What they are strong at | This toolkit adds |
 |---|---|---|---|
