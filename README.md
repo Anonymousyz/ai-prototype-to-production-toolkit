@@ -11,7 +11,7 @@
   <img src="assets/ai-ready-overview.svg" alt="AI Prototype-to-Production Toolkit: demo, review, veto gates and human decision" width="100%">
 </p>
 
-## Try it in 60 seconds
+## Quick start
 
 ```bash
 python -m pip install "https://github.com/Anonymousyz/ai-prototype-to-production-toolkit/releases/download/v0.6.0/ai_ready-0.6.0-py3-none-any.whl"
@@ -48,37 +48,21 @@ The unit of review is not an abstract model. It is an AI-enabled workflow that h
 | Human responsibility | Who can approve, override, escalate, pause, or stop an action? | review design, veto record, decision owner |
 | Operations | Who owns access, logs, cost, incidents, monitoring, support, and rollback? | risk register, runbook inputs, operating-owner record |
 
-A high model benchmark cannot answer these questions on its own. The goal is to make the unanswered questions visible before they become production incidents or governance disputes.
+Teams need to answer these questions alongside model evaluation. The review makes missing conditions visible before the workflow reaches a broader pilot or production discussion.
 
 ---
 
-## Core thesis
+## Review model
 
-> **AI demos prove possibility. Production requires responsibility.**
-
-This toolkit is built around a simple operating model:
-
-```text
-Production-ready AI = workflow + evidence + governance + accountability
-```
-
-Core beliefs:
-
-- A demo is not a deployment decision.
-- Readiness depends on workflow, governance, evaluation, and accountability as much as model output.
-- Enterprise AI should be reviewed through evidence, not excitement.
-- Human review, auditability, rollback, and ownership are product requirements, not compliance afterthoughts.
-- The FDE job is to translate AI capability into an accountable operating workflow.
+The toolkit brings workflow definition, evidence, controls, and operating responsibility into one review. It asks the team to document the user and decision point, data authorization, evaluation, human review, auditability, rollback, and ownership alongside model behavior.
 
 Read the full [`MANIFESTO.md`](MANIFESTO.md) and [`docs/production_ready_ai_thesis.md`](docs/production_ready_ai_thesis.md).
 
 ---
 
-## When the review is useful
+## Use it when a prototype needs a bounded next step
 
-Use this toolkit when a team says:
-
-> “The AI demo works. Can we put it into the real workflow next month?”
+Use this toolkit when a team needs to decide whether a prototype should stay in demonstration, enter a controlled pilot, or return for further work.
 
 It helps the team answer:
 
