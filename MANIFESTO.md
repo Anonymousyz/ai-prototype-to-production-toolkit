@@ -1,12 +1,8 @@
 # AI Production Readiness Manifesto
 
-> **AI demos prove possibility. Production requires responsibility.**
+I designed this toolkit for the handoff after a demo has won attention and before a team decides whether the system belongs in a real workflow.
 
-I designed this toolkit for an awkward handoff: the demo has won attention, but someone still has to decide whether the system belongs in a real workflow.
-
-That decision cannot rest on a polished interface or a single model score. It needs a workflow, evidence, controls, and named owners.
-
-> **Production-ready AI = workflow + evidence + governance + accountability.**
+The decision needs more than a polished interface or a model score. The team must describe the workflow, examine evidence, define controls, and name the people responsible for operating the system.
 
 ## What a demo actually proves
 
@@ -66,11 +62,11 @@ Governance work starts during discovery. It appears in the risk register, evalua
 
 That is why this repository contains working artifacts and a CLI rather than a policy essay alone. The artifacts make gaps discussable. They do not make the final decision.
 
-## The FDE role is translation
+## Deployment work is translation
 
-Forward-deployed work connects ambition with operating detail. The engineer has to translate a proposed capability into a workflow, a test plan, controls, ownership, and a handover that another team can run.
+Applied AI work connects a proposed capability with operating detail. The person doing that work has to turn the proposal into a workflow, a test plan, controls, named ownership, and a handover another team can run.
 
-Code matters. So do the questions around it: who may use the system, what can go wrong, who notices, and who has the authority to stop it.
+Code matters alongside the operating questions: who may use the system, what can go wrong, who notices, and who has authority to stop it.
 
 ## A practical review sequence
 
@@ -85,14 +81,12 @@ When someone asks whether a working demo can go into production, ask:
 7. What triggers rollback?
 8. Who makes the decision, and on what evidence?
 
-Only then is “production” a useful conversation.
+At that point, the team can discuss a production decision with shared terms and evidence.
 
 ## 中文摘要
 
-这个工具箱针对一个很具体的交接点：AI demo 已经能跑，但团队还没有足够依据决定它能否进入真实业务流程。
+这个工具箱处理一个具体交接点：AI 演示原型已经能运行，团队还需要判断它是否具备进入真实业务流程的条件。
 
-模型效果只是其中一部分。真正需要核验的，是业务流程、数据授权、评估证据、人工责任、日志、运行成本和回滚机制。v0.5 把七个维度和八项一票否决条件固定下来，避免自定义分母把任意输入包装成满分。
+模型效果只是材料的一部分。团队还要核对业务流程、数据授权、评估证据、人工责任、日志、运行成本和回滚机制。v0.5 固定七个维度和八项否决条件，防止自定义分母把任意输入包装成满分。
 
-CLI 只能检查材料是否按固定结构填写，不能证明证据真实，也不能证明评审人身份。最终判断仍由有权限、能承担后果的人作出。
-
-> **生产级 AI = 业务流程 + 评估证据 + 治理机制 + 责任链。**
+CLI 只检查材料是否按固定结构填写，不能核验证据真实性或评审人身份。最终判断仍由有权限、能够承担后果的人作出。
